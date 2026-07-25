@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import { Presentation, PresentationFile } from "@oai/artifact-tool";
 
-const OUT = "C:/Users/34283/Documents/New project/ppt-agent/projects/ai-ppt-agent-birth/outputs/native-ai-ppt-agent.pptx";
+const OUT = new URL("../outputs/native-ai-ppt-agent.pptx", import.meta.url).pathname;
 const W = 1280;
 const H = 720;
 const C = { paper: "#F7F8FA", ink: "#111827", muted: "#64748B", blue: "#2457FF", cyan: "#B8F1FF", yellow: "#F4D35E", orange: "#FF7A59", panel: "#E8ECF2", dark: "#152238" };
