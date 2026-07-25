@@ -1,0 +1,945 @@
+{
+  "schema_version": "2.0.0",
+  "deck_id": "ai-ppt-agent-birth",
+  "content_source": {
+    "type": "slide-plan",
+    "path": "slide-plan.json",
+    "schema_version": "1.0.0"
+  },
+  "source_slide_plan_version": "1.0.0",
+  "design_system_id": "ai-ppt-agent-product.v1",
+  "ruleset_version": "2.0.0",
+  "deck_direction": {
+    "communication_mode": "structured-argument",
+    "communication_job": "By the end, unspecified audience should 一个优秀的 AI PPT Agent，交付的不只是文件，而是一套能持续改进的演示设计能力。 because 一个优秀的 AI PPT Agent，交付的不只是文件，而是一套能持续改进的演示设计能力。",
+    "narrative_arc": [
+      "opening",
+      "explanation",
+      "comparison",
+      "explanation",
+      "closing"
+    ],
+    "visual_strategy": "Use evidence-led visuals on 9 of 12 slides; keep visuals subordinate to the slide claim.",
+    "hierarchy_strategy": "Create one dominant read per slide, then reveal the primary exhibit and supporting context in a deliberate order.",
+    "image_strategy": "Use images as hero, evidence, context, or comparison; define crop and focal placement before layout selection, and avoid decorative thumbnail grids.",
+    "layout_strategy": "Choose a composition by communication job, content relationship, and capacity; vary silhouette at narrative beats rather than for decoration.",
+    "density_strategy": "Prefer low-to-medium density; shorten, change layout, or split before reducing typography below budget.",
+    "rhythm_strategy": "Alternate text-led, visual-led, and transition silhouettes; do not repeat one layout family more than twice."
+  },
+  "slides": [
+    {
+      "slide_id": "slide-001",
+      "slide_number": 1,
+      "slide_type": "cover",
+      "layout": {
+        "layout_id": "cover.title-subtitle.v1",
+        "family": "cover",
+        "selection_reason": "supports `cover`; supports `typography`; content item count fits; text fits declared capacity; preserves compatible v1 layout intent",
+        "fallback_layout_ids": [],
+        "alternatives": []
+      },
+      "visual_type": "typography",
+      "information_density": {
+        "level": "medium",
+        "content_items": 2,
+        "estimated_characters": 39,
+        "max_content_items": 2,
+        "max_characters": 70,
+        "overflow_action": "none"
+      },
+      "narrative": {
+        "communication_job": "一套 AI PPT Agent 如何从想法走向可交付系统？",
+        "primary_claim": "把内容理解、设计决策和可编辑渲染拆成协作系统，PPT 才能从生成文本走向生成设计。",
+        "entry_logic": "Open the deck and establish the central tension",
+        "exit_logic": "Create the need for: 传统制作为什么慢且不稳定？",
+        "pacing": "pause"
+      },
+      "hierarchy": {
+        "dominant_element": "primary-claim",
+        "reading_order": [
+          "primary-claim",
+          "supporting-line"
+        ],
+        "emphasis_levels": 3,
+        "deemphasis": "Sources, captions, qualifiers, and repeated context"
+      },
+      "composition": {
+        "silhouette": "single-focal-field",
+        "balance": "centered",
+        "reading_pattern": "center-out",
+        "whitespace": "controlled",
+        "grouping": "Group by meaning and relationship; avoid equal card treatment for unrelated content",
+        "contrast": "Use scale first, then weight or color; reserve the accent for the decisive point",
+        "variation_reason": "Chosen to match this slide's communication job and content relationships"
+      },
+      "image_strategy": {
+        "use_image": false,
+        "role": "none",
+        "subject": null,
+        "aspect_ratio": "auto",
+        "focal_position": "auto",
+        "crop_intent": "none",
+        "treatment": "No decorative image required",
+        "fallback": "change-layout"
+      },
+      "design_notes": [
+        "Keep the cover minimal",
+        "Create one dominant focal point",
+        "Use scale, weight, and whitespace to create hierarchy; do not default to a bullet document",
+        "Visual purpose: 把内容理解、设计决策和可编辑渲染拆成协作系统，PPT 才能从生成文本走向生成设计。"
+      ],
+      "content_refs": [
+        "block-001-title",
+        "block-001-subtitle"
+      ],
+      "asset_requirements": [],
+      "quality_constraints": [
+        "title-must-not-overflow",
+        "body-font-at-least-16pt",
+        "no-unintended-overlap"
+      ]
+    },
+    {
+      "slide_id": "slide-002",
+      "slide_number": 2,
+      "slide_type": "claim-evidence",
+      "layout": {
+        "layout_id": "claim-evidence.visual-left.v1",
+        "family": "claim-evidence",
+        "selection_reason": "supports `claim-evidence`; supports `diagram`; content item count fits; text fits declared capacity",
+        "fallback_layout_ids": [
+          "content.title-body.v1"
+        ],
+        "alternatives": []
+      },
+      "visual_type": "diagram",
+      "information_density": {
+        "level": "medium",
+        "content_items": 4,
+        "estimated_characters": 81,
+        "max_content_items": 5,
+        "max_characters": 190,
+        "overflow_action": "none"
+      },
+      "narrative": {
+        "communication_job": "传统制作为什么慢且不稳定？",
+        "primary_claim": "资料、叙事、图表、版式和修改相互耦合，让每一次改动都可能牵动整套页面。",
+        "entry_logic": "Build from: 把内容理解、设计决策和可编辑渲染拆成协作系统，PPT 才能从生成文本走向生成设计。",
+        "exit_logic": "Create the need for: AI Agent 的解决方案是什么？",
+        "pacing": "advance"
+      },
+      "hierarchy": {
+        "dominant_element": "primary-exhibit",
+        "reading_order": [
+          "action-title",
+          "primary-exhibit",
+          "supporting-context"
+        ],
+        "emphasis_levels": 2,
+        "deemphasis": "Sources, captions, qualifiers, and repeated context"
+      },
+      "composition": {
+        "silhouette": "exhibit-dominant",
+        "balance": "asymmetric",
+        "reading_pattern": "z-pattern",
+        "whitespace": "controlled",
+        "grouping": "Group by meaning and relationship; avoid equal card treatment for unrelated content",
+        "contrast": "Use scale first, then weight or color; reserve the accent for the decisive point",
+        "variation_reason": "Chosen to match this slide's communication job and content relationships"
+      },
+      "image_strategy": {
+        "use_image": false,
+        "role": "none",
+        "subject": null,
+        "aspect_ratio": "auto",
+        "focal_position": "auto",
+        "crop_intent": "none",
+        "treatment": "No decorative image required",
+        "fallback": "change-layout"
+      },
+      "design_notes": [
+        "Make the action title state the takeaway",
+        "Give the primary exhibit more area than explanatory text",
+        "Use a simple directional structure; keep labels concise",
+        "Visual purpose: 资料、叙事、图表、版式和修改相互耦合，让每一次改动都可能牵动整套页面。"
+      ],
+      "content_refs": [
+        "block-002-points"
+      ],
+      "asset_requirements": [],
+      "quality_constraints": [
+        "title-must-not-overflow",
+        "body-font-at-least-16pt",
+        "no-unintended-overlap",
+        "action-title-must-state-takeaway"
+      ]
+    },
+    {
+      "slide_id": "slide-003",
+      "slide_number": 3,
+      "slide_type": "claim-evidence",
+      "layout": {
+        "layout_id": "claim-evidence.visual-left.v1",
+        "family": "claim-evidence",
+        "selection_reason": "supports `claim-evidence`; supports `mixed`; content item count fits; text fits declared capacity; preserves compatible v1 layout intent",
+        "fallback_layout_ids": [
+          "content.title-body.v1"
+        ],
+        "alternatives": []
+      },
+      "visual_type": "mixed",
+      "information_density": {
+        "level": "medium",
+        "content_items": 4,
+        "estimated_characters": 81,
+        "max_content_items": 5,
+        "max_characters": 190,
+        "overflow_action": "none"
+      },
+      "narrative": {
+        "communication_job": "AI Agent 的解决方案是什么？",
+        "primary_claim": "Agent 不直接堆文字，而是先建立内容语义，再选择视觉表达，最后生成可编辑页面。",
+        "entry_logic": "Build from: 资料、叙事、图表、版式和修改相互耦合，让每一次改动都可能牵动整套页面。",
+        "exit_logic": "Create the need for: 系统如何分层？",
+        "pacing": "advance"
+      },
+      "hierarchy": {
+        "dominant_element": "primary-exhibit",
+        "reading_order": [
+          "action-title",
+          "primary-exhibit",
+          "supporting-context"
+        ],
+        "emphasis_levels": 2,
+        "deemphasis": "Sources, captions, qualifiers, and repeated context"
+      },
+      "composition": {
+        "silhouette": "exhibit-dominant",
+        "balance": "asymmetric",
+        "reading_pattern": "z-pattern",
+        "whitespace": "controlled",
+        "grouping": "Group by meaning and relationship; avoid equal card treatment for unrelated content",
+        "contrast": "Use scale first, then weight or color; reserve the accent for the decisive point",
+        "variation_reason": "Chosen to match this slide's communication job and content relationships"
+      },
+      "image_strategy": {
+        "use_image": true,
+        "role": "evidence",
+        "subject": null,
+        "aspect_ratio": "auto",
+        "focal_position": "auto",
+        "crop_intent": "Preserve the focal subject and leave negative space for the title",
+        "treatment": "Use one strong image, not a collage",
+        "fallback": "change-layout"
+      },
+      "design_notes": [
+        "Make the action title state the takeaway",
+        "Give the primary exhibit more area than explanatory text",
+        "Choose one dominant visual and one supporting text region",
+        "Visual purpose: Agent 不直接堆文字，而是先建立内容语义，再选择视觉表达，最后生成可编辑页面。"
+      ],
+      "content_refs": [
+        "block-003-points"
+      ],
+      "asset_requirements": [],
+      "quality_constraints": [
+        "title-must-not-overflow",
+        "body-font-at-least-16pt",
+        "no-unintended-overlap",
+        "action-title-must-state-takeaway"
+      ]
+    },
+    {
+      "slide_id": "slide-004",
+      "slide_number": 4,
+      "slide_type": "claim-evidence",
+      "layout": {
+        "layout_id": "content.title-body.v1",
+        "family": "claim-evidence",
+        "selection_reason": "supports `claim-evidence`; supports `typography`; content item count fits; text fits declared capacity",
+        "fallback_layout_ids": [],
+        "alternatives": []
+      },
+      "visual_type": "typography",
+      "information_density": {
+        "level": "medium",
+        "content_items": 4,
+        "estimated_characters": 112,
+        "max_content_items": 5,
+        "max_characters": 190,
+        "overflow_action": "none"
+      },
+      "narrative": {
+        "communication_job": "系统如何分层？",
+        "primary_claim": "中间结构化状态让 Agent 能够解释、验证和局部修改，而不是重新生成整份 PPT。",
+        "entry_logic": "Build from: Agent 不直接堆文字，而是先建立内容语义，再选择视觉表达，最后生成可编辑页面。",
+        "exit_logic": "Create the need for: 一页内容如何成为可编辑的页面？",
+        "pacing": "advance"
+      },
+      "hierarchy": {
+        "dominant_element": "action-title",
+        "reading_order": [
+          "action-title",
+          "key-message",
+          "supporting-content"
+        ],
+        "emphasis_levels": 2,
+        "deemphasis": "Sources, captions, qualifiers, and repeated context"
+      },
+      "composition": {
+        "silhouette": "editorial-stack",
+        "balance": "asymmetric",
+        "reading_pattern": "z-pattern",
+        "whitespace": "controlled",
+        "grouping": "Group by meaning and relationship; avoid equal card treatment for unrelated content",
+        "contrast": "Use scale first, then weight or color; reserve the accent for the decisive point",
+        "variation_reason": "Chosen to match this slide's communication job and content relationships"
+      },
+      "image_strategy": {
+        "use_image": false,
+        "role": "none",
+        "subject": null,
+        "aspect_ratio": "auto",
+        "focal_position": "auto",
+        "crop_intent": "none",
+        "treatment": "No decorative image required",
+        "fallback": "change-layout"
+      },
+      "design_notes": [
+        "Make the action title state the takeaway",
+        "Give the primary exhibit more area than explanatory text",
+        "Use scale, weight, and whitespace to create hierarchy; do not default to a bullet document",
+        "Visual purpose: 中间结构化状态让 Agent 能够解释、验证和局部修改，而不是重新生成整份 PPT。",
+        "Deck rhythm warning: change silhouette because this layout family repeats too often"
+      ],
+      "content_refs": [
+        "block-004-points"
+      ],
+      "asset_requirements": [],
+      "quality_constraints": [
+        "title-must-not-overflow",
+        "body-font-at-least-16pt",
+        "no-unintended-overlap",
+        "action-title-must-state-takeaway",
+        "layout-family-repetition-must-be-resolved"
+      ]
+    },
+    {
+      "slide_id": "slide-005",
+      "slide_number": 5,
+      "slide_type": "process",
+      "layout": {
+        "layout_id": "process.steps.v1",
+        "family": "process",
+        "selection_reason": "supports `process`; supports `diagram`; content item count fits; text fits declared capacity; preserves compatible v1 layout intent",
+        "fallback_layout_ids": [
+          "timeline.horizontal.v1"
+        ],
+        "alternatives": [
+          "timeline.horizontal.v1"
+        ]
+      },
+      "visual_type": "diagram",
+      "information_density": {
+        "level": "medium",
+        "content_items": 5,
+        "estimated_characters": 96,
+        "max_content_items": 6,
+        "max_characters": 180,
+        "overflow_action": "none"
+      },
+      "narrative": {
+        "communication_job": "一页内容如何成为可编辑的页面？",
+        "primary_claim": "Planner 做设计决策，Renderer 执行组件，Validator 把视觉问题变成可修复信号。",
+        "entry_logic": "Build from: 中间结构化状态让 Agent 能够解释、验证和局部修改，而不是重新生成整份 PPT。",
+        "exit_logic": "Create the need for: 为什么需要多 Agent？",
+        "pacing": "advance"
+      },
+      "hierarchy": {
+        "dominant_element": "primary-exhibit",
+        "reading_order": [
+          "action-title",
+          "primary-exhibit",
+          "supporting-context"
+        ],
+        "emphasis_levels": 2,
+        "deemphasis": "Sources, captions, qualifiers, and repeated context"
+      },
+      "composition": {
+        "silhouette": "directional-sequence",
+        "balance": "structured",
+        "reading_pattern": "left-to-right",
+        "whitespace": "controlled",
+        "grouping": "Group by meaning and relationship; avoid equal card treatment for unrelated content",
+        "contrast": "Use scale first, then weight or color; reserve the accent for the decisive point",
+        "variation_reason": "Chosen to match this slide's communication job and content relationships"
+      },
+      "image_strategy": {
+        "use_image": false,
+        "role": "none",
+        "subject": null,
+        "aspect_ratio": "auto",
+        "focal_position": "auto",
+        "crop_intent": "none",
+        "treatment": "No decorative image required",
+        "fallback": "change-layout"
+      },
+      "design_notes": [
+        "Keep step labels short",
+        "Show direction and grouping explicitly",
+        "Use a simple directional structure; keep labels concise",
+        "Visual purpose: Planner 做设计决策，Renderer 执行组件，Validator 把视觉问题变成可修复信号。"
+      ],
+      "content_refs": [
+        "block-005-steps"
+      ],
+      "asset_requirements": [],
+      "quality_constraints": [
+        "title-must-not-overflow",
+        "body-font-at-least-16pt",
+        "no-unintended-overlap",
+        "action-title-must-state-takeaway"
+      ]
+    },
+    {
+      "slide_id": "slide-006",
+      "slide_number": 6,
+      "slide_type": "process",
+      "layout": {
+        "layout_id": "process.steps.v1",
+        "family": "process",
+        "selection_reason": "supports `process`; supports `diagram`; content item count fits; text fits declared capacity; preserves compatible v1 layout intent",
+        "fallback_layout_ids": [
+          "timeline.horizontal.v1"
+        ],
+        "alternatives": [
+          "timeline.horizontal.v1"
+        ]
+      },
+      "visual_type": "diagram",
+      "information_density": {
+        "level": "medium",
+        "content_items": 5,
+        "estimated_characters": 113,
+        "max_content_items": 6,
+        "max_characters": 180,
+        "overflow_action": "none"
+      },
+      "narrative": {
+        "communication_job": "为什么需要多 Agent？",
+        "primary_claim": "内容、设计、资产、渲染和 QA 分别优化，系统才能同时保持速度、可控性和专业度。",
+        "entry_logic": "Build from: Planner 做设计决策，Renderer 执行组件，Validator 把视觉问题变成可修复信号。",
+        "exit_logic": "Create the need for: 页面能力如何复用？",
+        "pacing": "advance"
+      },
+      "hierarchy": {
+        "dominant_element": "primary-exhibit",
+        "reading_order": [
+          "action-title",
+          "primary-exhibit",
+          "supporting-context"
+        ],
+        "emphasis_levels": 2,
+        "deemphasis": "Sources, captions, qualifiers, and repeated context"
+      },
+      "composition": {
+        "silhouette": "directional-sequence",
+        "balance": "structured",
+        "reading_pattern": "left-to-right",
+        "whitespace": "controlled",
+        "grouping": "Group by meaning and relationship; avoid equal card treatment for unrelated content",
+        "contrast": "Use scale first, then weight or color; reserve the accent for the decisive point",
+        "variation_reason": "Chosen to match this slide's communication job and content relationships"
+      },
+      "image_strategy": {
+        "use_image": false,
+        "role": "none",
+        "subject": null,
+        "aspect_ratio": "auto",
+        "focal_position": "auto",
+        "crop_intent": "none",
+        "treatment": "No decorative image required",
+        "fallback": "change-layout"
+      },
+      "design_notes": [
+        "Keep step labels short",
+        "Show direction and grouping explicitly",
+        "Use a simple directional structure; keep labels concise",
+        "Visual purpose: 内容、设计、资产、渲染和 QA 分别优化，系统才能同时保持速度、可控性和专业度。"
+      ],
+      "content_refs": [
+        "block-006-steps"
+      ],
+      "asset_requirements": [],
+      "quality_constraints": [
+        "title-must-not-overflow",
+        "body-font-at-least-16pt",
+        "no-unintended-overlap",
+        "action-title-must-state-takeaway"
+      ]
+    },
+    {
+      "slide_id": "slide-007",
+      "slide_number": 7,
+      "slide_type": "claim-evidence",
+      "layout": {
+        "layout_id": "claim-evidence.visual-left.v1",
+        "family": "claim-evidence",
+        "selection_reason": "supports `claim-evidence`; supports `mixed`; content item count fits; text fits declared capacity; preserves compatible v1 layout intent",
+        "fallback_layout_ids": [
+          "content.title-body.v1"
+        ],
+        "alternatives": []
+      },
+      "visual_type": "mixed",
+      "information_density": {
+        "level": "medium",
+        "content_items": 5,
+        "estimated_characters": 81,
+        "max_content_items": 5,
+        "max_characters": 190,
+        "overflow_action": "none"
+      },
+      "narrative": {
+        "communication_job": "页面能力如何复用？",
+        "primary_claim": "组件是可执行的设计知识：每种页面知道自己的信息容量、视觉重点和质量约束。",
+        "entry_logic": "Build from: 内容、设计、资产、渲染和 QA 分别优化，系统才能同时保持速度、可控性和专业度。",
+        "exit_logic": "Create the need for: 自动生成如何体现价值？",
+        "pacing": "advance"
+      },
+      "hierarchy": {
+        "dominant_element": "primary-exhibit",
+        "reading_order": [
+          "action-title",
+          "primary-exhibit",
+          "supporting-context"
+        ],
+        "emphasis_levels": 2,
+        "deemphasis": "Sources, captions, qualifiers, and repeated context"
+      },
+      "composition": {
+        "silhouette": "exhibit-dominant",
+        "balance": "asymmetric",
+        "reading_pattern": "z-pattern",
+        "whitespace": "controlled",
+        "grouping": "Group by meaning and relationship; avoid equal card treatment for unrelated content",
+        "contrast": "Use scale first, then weight or color; reserve the accent for the decisive point",
+        "variation_reason": "Chosen to match this slide's communication job and content relationships"
+      },
+      "image_strategy": {
+        "use_image": true,
+        "role": "evidence",
+        "subject": null,
+        "aspect_ratio": "auto",
+        "focal_position": "auto",
+        "crop_intent": "Preserve the focal subject and leave negative space for the title",
+        "treatment": "Use one strong image, not a collage",
+        "fallback": "change-layout"
+      },
+      "design_notes": [
+        "Make the action title state the takeaway",
+        "Give the primary exhibit more area than explanatory text",
+        "Choose one dominant visual and one supporting text region",
+        "Visual purpose: 组件是可执行的设计知识：每种页面知道自己的信息容量、视觉重点和质量约束。"
+      ],
+      "content_refs": [
+        "block-007-points"
+      ],
+      "asset_requirements": [],
+      "quality_constraints": [
+        "title-must-not-overflow",
+        "body-font-at-least-16pt",
+        "no-unintended-overlap",
+        "action-title-must-state-takeaway"
+      ]
+    },
+    {
+      "slide_id": "slide-008",
+      "slide_number": 8,
+      "slide_type": "data-insight",
+      "layout": {
+        "layout_id": "chart.title-insight.v1",
+        "family": "data-insight",
+        "selection_reason": "supports `data-insight`; supports `chart`; content item count fits; text fits declared capacity; preserves compatible v1 layout intent",
+        "fallback_layout_ids": [
+          "claim-evidence.visual-left.v1"
+        ],
+        "alternatives": [
+          "claim-evidence.visual-left.v1"
+        ]
+      },
+      "visual_type": "chart",
+      "information_density": {
+        "level": "medium",
+        "content_items": 5,
+        "estimated_characters": 46,
+        "max_content_items": 5,
+        "max_characters": 140,
+        "overflow_action": "none"
+      },
+      "narrative": {
+        "communication_job": "自动生成如何体现价值？",
+        "primary_claim": "同一份结构化计划可以同时驱动内容预览、PPTX 输出、视觉 QA 和定向修改。",
+        "entry_logic": "Build from: 组件是可执行的设计知识：每种页面知道自己的信息容量、视觉重点和质量约束。",
+        "exit_logic": "Create the need for: 它与传统工具的区别在哪里？",
+        "pacing": "advance"
+      },
+      "hierarchy": {
+        "dominant_element": "primary-exhibit",
+        "reading_order": [
+          "action-title",
+          "primary-exhibit",
+          "supporting-context"
+        ],
+        "emphasis_levels": 2,
+        "deemphasis": "Sources, captions, qualifiers, and repeated context"
+      },
+      "composition": {
+        "silhouette": "exhibit-dominant",
+        "balance": "asymmetric",
+        "reading_pattern": "z-pattern",
+        "whitespace": "controlled",
+        "grouping": "Group by meaning and relationship; avoid equal card treatment for unrelated content",
+        "contrast": "Use scale first, then weight or color; reserve the accent for the decisive point",
+        "variation_reason": "Chosen to match this slide's communication job and content relationships"
+      },
+      "image_strategy": {
+        "use_image": false,
+        "role": "none",
+        "subject": null,
+        "aspect_ratio": "auto",
+        "focal_position": "auto",
+        "crop_intent": "none",
+        "treatment": "No decorative image required",
+        "fallback": "change-layout"
+      },
+      "design_notes": [
+        "Annotate the key finding directly",
+        "Remove chart decoration that does not support interpretation",
+        "Give the chart the dominant evidence region and annotate the stated insight",
+        "Visual purpose: 同一份结构化计划可以同时驱动内容预览、PPTX 输出、视觉 QA 和定向修改。"
+      ],
+      "content_refs": [
+        "block-008-metrics"
+      ],
+      "asset_requirements": [
+        {
+          "asset_role": "primary-visual",
+          "asset_type": "chart-data",
+          "required": true,
+          "aspect_ratio": "auto",
+          "brief": "同一份结构化计划可以同时驱动内容预览、PPTX 输出、视觉 QA 和定向修改。"
+        }
+      ],
+      "quality_constraints": [
+        "title-must-not-overflow",
+        "body-font-at-least-16pt",
+        "no-unintended-overlap",
+        "action-title-must-state-takeaway",
+        "chart-must-have-insight",
+        "chart-data-source-required"
+      ]
+    },
+    {
+      "slide_id": "slide-009",
+      "slide_number": 9,
+      "slide_type": "comparison",
+      "layout": {
+        "layout_id": "comparison.two-column.v1",
+        "family": "comparison",
+        "selection_reason": "supports `comparison`; supports `diagram`; content item count fits; text fits declared capacity; preserves compatible v1 layout intent",
+        "fallback_layout_ids": [
+          "claim-evidence.visual-left.v1"
+        ],
+        "alternatives": []
+      },
+      "visual_type": "diagram",
+      "information_density": {
+        "level": "medium",
+        "content_items": 8,
+        "estimated_characters": 123,
+        "max_content_items": 8,
+        "max_characters": 220,
+        "overflow_action": "none"
+      },
+      "narrative": {
+        "communication_job": "它与传统工具的区别在哪里？",
+        "primary_claim": "传统工具帮助你画页面；AI PPT Agent 帮助你持续做正确的页面决策。",
+        "entry_logic": "Build from: 同一份结构化计划可以同时驱动内容预览、PPTX 输出、视觉 QA 和定向修改。",
+        "exit_logic": "Create the need for: 下一步会如何演进？",
+        "pacing": "compare"
+      },
+      "hierarchy": {
+        "dominant_element": "primary-exhibit",
+        "reading_order": [
+          "action-title",
+          "primary-exhibit",
+          "supporting-context"
+        ],
+        "emphasis_levels": 2,
+        "deemphasis": "Sources, captions, qualifiers, and repeated context"
+      },
+      "composition": {
+        "silhouette": "matched-split",
+        "balance": "structured",
+        "reading_pattern": "left-to-right",
+        "whitespace": "controlled",
+        "grouping": "Group by meaning and relationship; avoid equal card treatment for unrelated content",
+        "contrast": "Use scale first, then weight or color; reserve the accent for the decisive point",
+        "variation_reason": "Chosen to match this slide's communication job and content relationships"
+      },
+      "image_strategy": {
+        "use_image": false,
+        "role": "none",
+        "subject": null,
+        "aspect_ratio": "auto",
+        "focal_position": "auto",
+        "crop_intent": "none",
+        "treatment": "No decorative image required",
+        "fallback": "change-layout"
+      },
+      "design_notes": [
+        "Use identical comparison dimensions on both sides",
+        "Highlight the decisive difference instead of decorating both columns equally",
+        "Use a simple directional structure; keep labels concise",
+        "Visual purpose: 传统工具帮助你画页面；AI PPT Agent 帮助你持续做正确的页面决策。"
+      ],
+      "content_refs": [
+        "block-009-left",
+        "block-009-right"
+      ],
+      "asset_requirements": [],
+      "quality_constraints": [
+        "title-must-not-overflow",
+        "body-font-at-least-16pt",
+        "no-unintended-overlap",
+        "action-title-must-state-takeaway"
+      ]
+    },
+    {
+      "slide_id": "slide-010",
+      "slide_number": 10,
+      "slide_type": "timeline",
+      "layout": {
+        "layout_id": "timeline.horizontal.v1",
+        "family": "timeline",
+        "selection_reason": "supports `timeline`; supports `diagram`; content item count fits; text fits declared capacity; preserves compatible v1 layout intent",
+        "fallback_layout_ids": [
+          "process.steps.v1"
+        ],
+        "alternatives": []
+      },
+      "visual_type": "diagram",
+      "information_density": {
+        "level": "medium",
+        "content_items": 5,
+        "estimated_characters": 69,
+        "max_content_items": 7,
+        "max_characters": 180,
+        "overflow_action": "none"
+      },
+      "narrative": {
+        "communication_job": "下一步会如何演进？",
+        "primary_claim": "下一阶段的重点不只是更多模板，而是让系统从真实修改中学习设计偏好。",
+        "entry_logic": "Build from: 传统工具帮助你画页面；AI PPT Agent 帮助你持续做正确的页面决策。",
+        "exit_logic": "Create the need for: 技术上最难的是什么？",
+        "pacing": "advance"
+      },
+      "hierarchy": {
+        "dominant_element": "primary-exhibit",
+        "reading_order": [
+          "action-title",
+          "primary-exhibit",
+          "supporting-context"
+        ],
+        "emphasis_levels": 2,
+        "deemphasis": "Sources, captions, qualifiers, and repeated context"
+      },
+      "composition": {
+        "silhouette": "directional-sequence",
+        "balance": "structured",
+        "reading_pattern": "left-to-right",
+        "whitespace": "controlled",
+        "grouping": "Group by meaning and relationship; avoid equal card treatment for unrelated content",
+        "contrast": "Use scale first, then weight or color; reserve the accent for the decisive point",
+        "variation_reason": "Chosen to match this slide's communication job and content relationships"
+      },
+      "image_strategy": {
+        "use_image": false,
+        "role": "none",
+        "subject": null,
+        "aspect_ratio": "auto",
+        "focal_position": "auto",
+        "crop_intent": "none",
+        "treatment": "No decorative image required",
+        "fallback": "change-layout"
+      },
+      "design_notes": [
+        "Use a consistent time scale when dates are quantitative",
+        "Emphasize turning points, not every event",
+        "Use a simple directional structure; keep labels concise",
+        "Visual purpose: 下一阶段的重点不只是更多模板，而是让系统从真实修改中学习设计偏好。"
+      ],
+      "content_refs": [
+        "block-010-events"
+      ],
+      "asset_requirements": [],
+      "quality_constraints": [
+        "title-must-not-overflow",
+        "body-font-at-least-16pt",
+        "no-unintended-overlap",
+        "action-title-must-state-takeaway"
+      ]
+    },
+    {
+      "slide_id": "slide-011",
+      "slide_number": 11,
+      "slide_type": "claim-evidence",
+      "layout": {
+        "layout_id": "claim-evidence.visual-left.v1",
+        "family": "claim-evidence",
+        "selection_reason": "supports `claim-evidence`; supports `mixed`; content item count fits; text fits declared capacity; preserves compatible v1 layout intent",
+        "fallback_layout_ids": [
+          "content.title-body.v1"
+        ],
+        "alternatives": []
+      },
+      "visual_type": "mixed",
+      "information_density": {
+        "level": "medium",
+        "content_items": 4,
+        "estimated_characters": 89,
+        "max_content_items": 5,
+        "max_characters": 190,
+        "overflow_action": "none"
+      },
+      "narrative": {
+        "communication_job": "技术上最难的是什么？",
+        "primary_claim": "真正困难的是把主观设计经验变成可执行规则，同时保留人类对例外情况的判断力。",
+        "entry_logic": "Build from: 下一阶段的重点不只是更多模板，而是让系统从真实修改中学习设计偏好。",
+        "exit_logic": "Create the need for: 最终想留下什么？",
+        "pacing": "advance"
+      },
+      "hierarchy": {
+        "dominant_element": "primary-exhibit",
+        "reading_order": [
+          "action-title",
+          "primary-exhibit",
+          "supporting-context"
+        ],
+        "emphasis_levels": 2,
+        "deemphasis": "Sources, captions, qualifiers, and repeated context"
+      },
+      "composition": {
+        "silhouette": "exhibit-dominant",
+        "balance": "asymmetric",
+        "reading_pattern": "z-pattern",
+        "whitespace": "controlled",
+        "grouping": "Group by meaning and relationship; avoid equal card treatment for unrelated content",
+        "contrast": "Use scale first, then weight or color; reserve the accent for the decisive point",
+        "variation_reason": "Chosen to match this slide's communication job and content relationships"
+      },
+      "image_strategy": {
+        "use_image": true,
+        "role": "evidence",
+        "subject": null,
+        "aspect_ratio": "auto",
+        "focal_position": "auto",
+        "crop_intent": "Preserve the focal subject and leave negative space for the title",
+        "treatment": "Use one strong image, not a collage",
+        "fallback": "change-layout"
+      },
+      "design_notes": [
+        "Make the action title state the takeaway",
+        "Give the primary exhibit more area than explanatory text",
+        "Choose one dominant visual and one supporting text region",
+        "Visual purpose: 真正困难的是把主观设计经验变成可执行规则，同时保留人类对例外情况的判断力。"
+      ],
+      "content_refs": [
+        "block-011-points"
+      ],
+      "asset_requirements": [],
+      "quality_constraints": [
+        "title-must-not-overflow",
+        "body-font-at-least-16pt",
+        "no-unintended-overlap",
+        "action-title-must-state-takeaway"
+      ]
+    },
+    {
+      "slide_id": "slide-012",
+      "slide_number": 12,
+      "slide_type": "closing",
+      "layout": {
+        "layout_id": "closing.final-message.v1",
+        "family": "closing",
+        "selection_reason": "supports `closing`; supports `typography`; text fits declared capacity; preserves compatible v1 layout intent",
+        "fallback_layout_ids": [
+          "cover.title-subtitle.v1"
+        ],
+        "alternatives": []
+      },
+      "visual_type": "typography",
+      "information_density": {
+        "level": "high",
+        "content_items": 3,
+        "estimated_characters": 20,
+        "max_content_items": 2,
+        "max_characters": 90,
+        "overflow_action": "change-layout"
+      },
+      "narrative": {
+        "communication_job": "最终想留下什么？",
+        "primary_claim": "一个优秀的 AI PPT Agent，交付的不只是文件，而是一套能持续改进的演示设计能力。",
+        "entry_logic": "Build from: 真正困难的是把主观设计经验变成可执行规则，同时保留人类对例外情况的判断力。",
+        "exit_logic": "Resolve the deck's opening promise",
+        "pacing": "resolve"
+      },
+      "hierarchy": {
+        "dominant_element": "primary-claim",
+        "reading_order": [
+          "primary-claim",
+          "supporting-line"
+        ],
+        "emphasis_levels": 2,
+        "deemphasis": "Sources, captions, qualifiers, and repeated context"
+      },
+      "composition": {
+        "silhouette": "single-focal-field",
+        "balance": "centered",
+        "reading_pattern": "center-out",
+        "whitespace": "compact",
+        "grouping": "Group by meaning and relationship; avoid equal card treatment for unrelated content",
+        "contrast": "Use scale first, then weight or color; reserve the accent for the decisive point",
+        "variation_reason": "Chosen to match this slide's communication job and content relationships"
+      },
+      "image_strategy": {
+        "use_image": false,
+        "role": "none",
+        "subject": null,
+        "aspect_ratio": "auto",
+        "focal_position": "auto",
+        "crop_intent": "none",
+        "treatment": "No decorative image required",
+        "fallback": "change-layout"
+      },
+      "design_notes": [
+        "Echo the opening visual language",
+        "Do not end with an unframed generic thank-you",
+        "Use scale, weight, and whitespace to create hierarchy; do not default to a bullet document",
+        "Visual purpose: 一个优秀的 AI PPT Agent，交付的不只是文件，而是一套能持续改进的演示设计能力。",
+        "Resolve density with `change-layout` before rendering"
+      ],
+      "content_refs": [
+        "block-012-takeaways"
+      ],
+      "asset_requirements": [],
+      "quality_constraints": [
+        "title-must-not-overflow",
+        "body-font-at-least-16pt",
+        "no-unintended-overlap",
+        "action-title-must-state-takeaway"
+      ]
+    }
+  ]
+}

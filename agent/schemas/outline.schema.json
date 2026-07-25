@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.ppt-agent/schemas/outline.schema.json",
+  "title": "Outline",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "project_id", "deck_title", "story_goal", "narrative_arc", "slides"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "project_id": { "type": "string", "minLength": 1 },
+    "deck_title": { "type": "string", "minLength": 1 },
+    "story_goal": { "type": "string", "minLength": 1 },
+    "narrative_arc": {
+      "type": "string",
+      "enum": ["problem-solution", "situation-analysis-action", "past-present-future", "question-answer", "proposal-proof-close"]
+    },
+    "slides": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/outline_slide" }
+    }
+  },
+  "$defs": {
+    "outline_slide": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["slide_id", "slide_number", "purpose", "working_title", "key_message", "required_evidence"],
+      "properties": {
+        "slide_id": { "type": "string", "pattern": "^slide-[0-9]{3}$" },
+        "slide_number": { "type": "integer", "minimum": 1 },
+        "purpose": { "type": "string", "minLength": 1 },
+        "working_title": { "type": "string", "minLength": 1 },
+        "key_message": { "type": "string", "minLength": 1 },
+        "required_evidence": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": []
+        },
+        "notes": { "type": "string", "default": "" }
+      }
+    }
+  }
+}
+

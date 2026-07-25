@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "project_id": "ai-drug-discovery-course-report",
+  "raw_request": "主题：《人工智能对药物研发的影响》\n受众：大学生\n用途：课程汇报\n风格：学术",
+  "topic": "人工智能对药物研发的影响",
+  "use_case": "classroom",
+  "audience": ["大学生"],
+  "language": "zh-CN",
+  "page_count": {
+    "target": 10,
+    "min": 8,
+    "max": 12
+  },
+  "style": {
+    "requested": "学术",
+    "theme_hint": "academic-defense.v1"
+  },
+  "constraints": [
+    {
+      "constraint_id": "c-no-web-research-mvp",
+      "type": "content",
+      "description": "MVP 第一版不联网检索资料；内容使用通识性课程汇报框架，后续可由 Research Skill 补充来源。",
+      "severity": "must"
+    },
+    {
+      "constraint_id": "c-audience-college",
+      "type": "content",
+      "description": "面向大学生，解释专业概念时要清楚但不过度简化。",
+      "severity": "must"
+    }
+  ],
+  "materials": [],
+  "clarifications": [
+    {
+      "question": "是否需要指定课程名称、汇报时长或参考文献格式？",
+      "answer": null,
+      "status": "assumed"
+    }
+  ]
+}
+

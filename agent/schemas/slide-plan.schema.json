@@ -1,0 +1,362 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.ppt-agent/schemas/slide-plan.schema.json",
+  "title": "Slide Plan",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "deck_id",
+    "language",
+    "slide_size",
+    "design_system_id",
+    "slides"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "deck_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "language": {
+      "type": "string",
+      "minLength": 2,
+      "examples": ["zh-CN", "en-US"]
+    },
+    "slide_size": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["preset", "width", "height", "unit"],
+      "properties": {
+        "preset": {
+          "type": "string",
+          "enum": ["wide-16-9", "standard-4-3", "custom"]
+        },
+        "width": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "height": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "unit": {
+          "type": "string",
+          "enum": ["in", "cm", "px"]
+        }
+      }
+    },
+    "design_system_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "global_constraints": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/constraint"
+      },
+      "default": []
+    },
+    "slides": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/slide"
+      }
+    }
+  },
+  "$defs": {
+    "slide": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "slide_id",
+        "slide_number",
+        "slide_type",
+        "layout_id",
+        "question",
+        "title",
+        "key_message",
+        "content_blocks",
+        "visual_intent",
+        "assets",
+        "editable_elements",
+        "revision_history"
+      ],
+      "properties": {
+        "slide_id": {
+          "type": "string",
+          "pattern": "^slide-[0-9]{3}$"
+        },
+        "slide_number": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "slide_type": {
+          "type": "string",
+          "enum": [
+            "cover",
+            "section",
+            "agenda",
+            "summary",
+            "content",
+            "big-number",
+            "comparison",
+            "timeline",
+            "process",
+            "chart",
+            "image",
+            "quote",
+            "closing"
+          ]
+        },
+        "layout_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "question": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "key_message": {
+          "type": "string",
+          "minLength": 1
+        },
+        "content_blocks": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/content_block"
+          }
+        },
+        "visual_intent": {
+          "$ref": "#/$defs/visual_intent"
+        },
+        "assets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/asset_ref"
+          },
+          "default": []
+        },
+        "editable_elements": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/editable_element"
+          },
+          "default": []
+        },
+        "speaker_notes": {
+          "type": "string",
+          "default": ""
+        },
+        "constraints": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/constraint"
+          },
+          "default": []
+        },
+        "revision_history": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/revision_entry"
+          },
+          "default": []
+        }
+      }
+    },
+    "content_block": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["block_id", "role", "content"],
+      "properties": {
+        "block_id": {
+          "type": "string",
+          "pattern": "^block-[a-z0-9-]+$"
+        },
+        "role": {
+          "type": "string",
+          "enum": ["headline", "body", "evidence", "caption", "callout", "label", "data"]
+        },
+        "content": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "type": "object"
+            }
+          ]
+        },
+        "priority": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5,
+          "default": 3
+        },
+        "source_asset_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        }
+      }
+    },
+    "visual_intent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "text",
+            "big-number",
+            "comparison",
+            "timeline",
+            "process",
+            "chart",
+            "image",
+            "quote",
+            "mixed"
+          ]
+        },
+        "chart_type": {
+          "type": ["string", "null"],
+          "enum": ["bar", "line", "area", "pie", "donut", "scatter", "table", null],
+          "default": null
+        },
+        "image_role": {
+          "type": ["string", "null"],
+          "enum": ["hero", "background", "thumbnail", "diagram-reference", null],
+          "default": null
+        },
+        "emphasis": {
+          "type": "string",
+          "enum": ["low", "medium", "high"],
+          "default": "medium"
+        }
+      }
+    },
+    "asset_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["asset_id", "type", "role"],
+      "properties": {
+        "asset_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "type": "string",
+          "enum": ["text", "image", "table", "chart-data", "template", "icon"]
+        },
+        "role": {
+          "type": "string",
+          "minLength": 1
+        },
+        "path": {
+          "type": ["string", "null"],
+          "default": null
+        },
+        "notes": {
+          "type": "string",
+          "default": ""
+        }
+      }
+    },
+    "editable_element": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["element_id", "element_type", "content_ref", "locked"],
+      "properties": {
+        "element_id": {
+          "type": "string",
+          "pattern": "^el-[a-z0-9-]+$"
+        },
+        "element_type": {
+          "type": "string",
+          "enum": ["text_box", "shape", "image", "chart", "table", "group"]
+        },
+        "content_ref": {
+          "type": ["string", "null"],
+          "description": "References a content block ID, asset ID, or null for decorative elements."
+        },
+        "locked": {
+          "type": "boolean",
+          "description": "Locked elements should not be changed during ordinary targeted revisions."
+        },
+        "revision_scope": {
+          "type": "string",
+          "enum": ["deck", "slide", "element"],
+          "default": "element"
+        }
+      }
+    },
+    "constraint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["constraint_id", "type", "description"],
+      "properties": {
+        "constraint_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "type": "string",
+          "enum": ["language", "style", "content", "layout", "brand", "accessibility"]
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "severity": {
+          "type": "string",
+          "enum": ["must", "should", "nice-to-have"],
+          "default": "must"
+        }
+      }
+    },
+    "revision_entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["revision_id", "request", "changed_at", "changed_fields"],
+      "properties": {
+        "revision_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "request": {
+          "type": "string",
+          "minLength": 1
+        },
+        "changed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "changed_fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
+

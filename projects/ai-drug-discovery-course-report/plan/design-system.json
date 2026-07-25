@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0.0",
+  "design_system_id": "ai-drug-discovery-academic.v1",
+  "theme_id": "academic-defense.v1",
+  "slide_size": {
+    "preset": "wide-16-9",
+    "width": 13.333,
+    "height": 7.5,
+    "unit": "in"
+  },
+  "palette": {
+    "background": "#FBFCFE",
+    "surface": "#EEF3F8",
+    "text_primary": "#111827",
+    "text_secondary": "#4B5563",
+    "accent_primary": "#315C8C",
+    "accent_secondary": "#6A7D39",
+    "warning": "#B45309",
+    "divider": "#D6DEE8"
+  },
+  "typography": {
+    "title_font": "Microsoft YaHei",
+    "body_font": "Microsoft YaHei",
+    "min_body_size_pt": 16,
+    "max_title_size_pt": 36
+  },
+  "spacing": {
+    "page_margin": 0.55,
+    "block_gap": 0.18,
+    "section_gap": 0.35
+  },
+  "layout_rules": {
+    "density": "medium-high",
+    "grid": "8-column",
+    "allowed_layout_ids": [
+      "cover.title-subtitle.v1",
+      "agenda.numbered-list.v1",
+      "content.title-body.v1",
+      "summary.three-takeaways.v1",
+      "comparison.two-column.v1",
+      "big-number.metric-focus.v1",
+      "timeline.horizontal.v1",
+      "process.steps.v1",
+      "chart.title-insight.v1",
+      "closing.final-message.v1"
+    ],
+    "avoid": [
+      "large_empty_decorative_blocks",
+      "ambiguous_icons",
+      "oversimplified_evidence"
+    ]
+  }
+}
+

@@ -1,0 +1,176 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.ppt-agent/schemas/v2/design-plan.schema.json",
+  "title": "Design Plan v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "deck_id", "content_source", "source_slide_plan_version", "design_system_id", "ruleset_version", "deck_direction", "slides"],
+  "properties": {
+    "schema_version": { "const": "2.0.0" },
+    "deck_id": { "type": "string", "minLength": 1 },
+    "content_source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "path", "schema_version"],
+      "properties": {
+        "type": { "const": "slide-plan" },
+        "path": { "type": "string", "minLength": 1 },
+        "schema_version": { "type": "string", "minLength": 1 }
+      }
+    },
+    "source_slide_plan_version": { "type": "string", "minLength": 1 },
+    "design_system_id": { "type": "string", "minLength": 1 },
+    "ruleset_version": { "type": "string", "minLength": 1 },
+    "deck_direction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["communication_mode", "communication_job", "narrative_arc", "visual_strategy", "hierarchy_strategy", "image_strategy", "layout_strategy", "density_strategy", "rhythm_strategy"],
+      "properties": {
+        "communication_mode": { "type": "string", "minLength": 1 },
+        "communication_job": { "type": "string", "minLength": 1 },
+        "narrative_arc": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+        "visual_strategy": { "type": "string", "minLength": 1 },
+        "hierarchy_strategy": { "type": "string", "minLength": 1 },
+        "image_strategy": { "type": "string", "minLength": 1 },
+        "layout_strategy": { "type": "string", "minLength": 1 },
+        "density_strategy": { "type": "string", "minLength": 1 },
+        "rhythm_strategy": { "type": "string", "minLength": 1 }
+      }
+    },
+    "slides": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/slide_design" }
+    }
+  },
+  "$defs": {
+    "slide_design": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["slide_id", "slide_number", "slide_type", "layout", "visual_type", "information_density", "narrative", "hierarchy", "composition", "image_strategy", "design_notes", "content_refs"],
+      "properties": {
+        "slide_id": { "type": "string", "pattern": "^slide-[0-9]{3}$" },
+        "slide_number": { "type": "integer", "minimum": 1 },
+        "slide_type": { "type": "string", "minLength": 1 },
+        "layout": { "$ref": "#/$defs/layout_decision" },
+        "visual_type": {
+          "enum": ["typography", "photo", "illustration", "diagram", "chart", "table", "metric", "quote", "mixed"]
+        },
+        "information_density": { "$ref": "#/$defs/density" },
+        "narrative": { "$ref": "#/$defs/narrative_decision" },
+        "hierarchy": { "$ref": "#/$defs/hierarchy_decision" },
+        "composition": { "$ref": "#/$defs/composition_decision" },
+        "image_strategy": { "$ref": "#/$defs/image_strategy" },
+        "design_notes": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "content_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "pattern": "^block-[a-z0-9-]+$" }
+        },
+        "asset_requirements": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/asset_requirement" },
+          "default": []
+        },
+        "quality_constraints": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "default": []
+        }
+      }
+    },
+    "layout_decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["layout_id", "family", "selection_reason", "fallback_layout_ids"],
+      "properties": {
+        "layout_id": { "type": "string", "minLength": 1 },
+        "family": { "type": "string", "minLength": 1 },
+        "selection_reason": { "type": "string", "minLength": 1 },
+        "fallback_layout_ids": { "type": "array", "items": { "type": "string" } },
+        "alternatives": { "type": "array", "items": { "type": "string" }, "default": [] }
+      }
+    },
+    "narrative_decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["communication_job", "primary_claim", "entry_logic", "exit_logic", "pacing"],
+      "properties": {
+        "communication_job": { "type": "string", "minLength": 1 },
+        "primary_claim": { "type": "string", "minLength": 1 },
+        "entry_logic": { "type": "string", "minLength": 1 },
+        "exit_logic": { "type": "string", "minLength": 1 },
+        "pacing": { "enum": ["pause", "reset", "inspect", "compare", "synthesize", "resolve", "advance"] }
+      }
+    },
+    "hierarchy_decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dominant_element", "reading_order", "emphasis_levels", "deemphasis"],
+      "properties": {
+        "dominant_element": { "type": "string", "minLength": 1 },
+        "reading_order": { "type": "array", "minItems": 2, "items": { "type": "string", "minLength": 1 } },
+        "emphasis_levels": { "type": "integer", "minimum": 2, "maximum": 3 },
+        "deemphasis": { "type": "string", "minLength": 1 }
+      }
+    },
+    "composition_decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["silhouette", "balance", "reading_pattern", "whitespace", "grouping", "contrast", "variation_reason"],
+      "properties": {
+        "silhouette": { "enum": ["single-focal-field", "matched-split", "directional-sequence", "exhibit-dominant", "staged-index", "synthesis-stack", "editorial-stack"] },
+        "balance": { "enum": ["asymmetric", "centered", "structured"] },
+        "reading_pattern": { "enum": ["z-pattern", "left-to-right", "top-to-bottom", "center-out"] },
+        "whitespace": { "enum": ["expansive", "generous", "controlled", "compact"] },
+        "grouping": { "type": "string", "minLength": 1 },
+        "contrast": { "type": "string", "minLength": 1 },
+        "variation_reason": { "type": "string", "minLength": 1 }
+      }
+    },
+    "image_strategy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["use_image", "role", "subject", "aspect_ratio", "focal_position", "crop_intent", "treatment", "fallback"],
+      "properties": {
+        "use_image": { "type": "boolean" },
+        "role": { "enum": ["none", "hero", "evidence", "context", "comparison", "texture"] },
+        "subject": { "type": ["string", "null"] },
+        "aspect_ratio": { "enum": ["16:9", "21:9", "16:10", "4:3", "3:2", "1:1", "portrait", "auto"] },
+        "focal_position": { "enum": ["left", "center", "right", "top", "bottom", "auto"] },
+        "crop_intent": { "type": "string", "minLength": 1 },
+        "treatment": { "type": "string", "minLength": 1 },
+        "fallback": { "enum": ["text-only", "diagram", "abstract-shape", "change-layout", "none"] }
+      }
+    },
+    "density": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["level", "content_items", "estimated_characters", "max_content_items", "max_characters"],
+      "properties": {
+        "level": { "enum": ["sparse", "low", "medium", "high"] },
+        "content_items": { "type": "integer", "minimum": 0 },
+        "estimated_characters": { "type": "integer", "minimum": 0 },
+        "max_content_items": { "type": "integer", "minimum": 1 },
+        "max_characters": { "type": "integer", "minimum": 0 },
+        "overflow_action": { "enum": ["none", "shorten", "change-layout", "split-slide"], "default": "none" }
+      }
+    },
+    "asset_requirement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["asset_role", "asset_type", "required", "aspect_ratio", "brief"],
+      "properties": {
+        "asset_role": { "type": "string", "minLength": 1 },
+        "asset_type": { "enum": ["photo", "illustration", "diagram", "chart-data", "table-data", "icon"] },
+        "required": { "type": "boolean" },
+        "aspect_ratio": { "enum": ["16:9", "21:9", "16:10", "4:3", "3:2", "1:1", "portrait", "auto"] },
+        "brief": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

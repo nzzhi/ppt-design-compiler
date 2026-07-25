@@ -1,0 +1,498 @@
+{
+  "schema_version": "1.0.0",
+  "deck_id": "ai-drug-discovery-course-report",
+  "language": "zh-CN",
+  "slide_size": {
+    "preset": "wide-16-9",
+    "width": 13.333,
+    "height": 7.5,
+    "unit": "in"
+  },
+  "design_system_id": "ai-drug-discovery-academic.v1",
+  "global_constraints": [
+    {
+      "constraint_id": "c-no-web-research-mvp",
+      "type": "content",
+      "description": "不联网检索资料；避免未经验证的精确数据。",
+      "severity": "must"
+    }
+  ],
+  "slides": [
+    {
+      "slide_id": "slide-001",
+      "slide_number": 1,
+      "slide_type": "cover",
+      "layout_id": "cover.title-subtitle.v1",
+      "question": "这份汇报要建立什么第一印象？",
+      "title": "人工智能对药物研发的影响",
+      "key_message": "AI 正在从辅助工具进入药物研发的核心决策链条。",
+      "content_blocks": [
+        {
+          "block_id": "block-cover-title",
+          "role": "headline",
+          "content": "人工智能对药物研发的影响",
+          "priority": 1,
+          "source_asset_ids": []
+        },
+        {
+          "block_id": "block-cover-subtitle",
+          "role": "body",
+          "content": "课程汇报 | 面向大学生 | 学术风格",
+          "priority": 2,
+          "source_asset_ids": []
+        }
+      ],
+      "visual_intent": {
+        "type": "text",
+        "chart_type": null,
+        "image_role": null,
+        "emphasis": "high"
+      },
+      "assets": [],
+      "editable_elements": [
+        {
+          "element_id": "el-001-title",
+          "element_type": "text_box",
+          "content_ref": "block-cover-title",
+          "locked": false,
+          "revision_scope": "element"
+        },
+        {
+          "element_id": "el-001-subtitle",
+          "element_type": "text_box",
+          "content_ref": "block-cover-subtitle",
+          "locked": false,
+          "revision_scope": "element"
+        }
+      ],
+      "speaker_notes": "",
+      "constraints": [],
+      "revision_history": []
+    },
+    {
+      "slide_id": "slide-002",
+      "slide_number": 2,
+      "slide_type": "agenda",
+      "layout_id": "agenda.numbered-list.v1",
+      "question": "听众接下来会如何理解这场汇报？",
+      "title": "汇报结构",
+      "key_message": "从传统研发痛点出发，理解 AI 的介入方式、价值和边界。",
+      "content_blocks": [
+        {
+          "block_id": "block-002-agenda",
+          "role": "body",
+          "content": ["传统药物研发为什么困难", "AI 介入哪些关键环节", "AI 带来的效率变化", "技术限制、伦理与监管", "未来趋势与总结"],
+          "priority": 1,
+          "source_asset_ids": []
+        }
+      ],
+      "visual_intent": {
+        "type": "text",
+        "chart_type": null,
+        "image_role": null,
+        "emphasis": "medium"
+      },
+      "assets": [],
+      "editable_elements": [
+        {
+          "element_id": "el-002-title",
+          "element_type": "text_box",
+          "content_ref": null,
+          "locked": false,
+          "revision_scope": "element"
+        },
+        {
+          "element_id": "el-002-agenda",
+          "element_type": "text_box",
+          "content_ref": "block-002-agenda",
+          "locked": false,
+          "revision_scope": "element"
+        }
+      ],
+      "speaker_notes": "",
+      "constraints": [],
+      "revision_history": []
+    },
+    {
+      "slide_id": "slide-003",
+      "slide_number": 3,
+      "slide_type": "content",
+      "layout_id": "content.title-body.v1",
+      "question": "为什么药物研发需要新的技术工具？",
+      "title": "传统药物研发的核心难题",
+      "key_message": "药物研发的难点来自长周期、高成本、高失败率和复杂验证链条。",
+      "content_blocks": [
+        {
+          "block_id": "block-003-points",
+          "role": "body",
+          "content": ["发现阶段需要从大量候选靶点和分子中筛选", "临床前研究要评估有效性、安全性和成药性", "临床试验周期长，失败原因往往暴露较晚", "不同环节之间数据割裂，决策依赖高度专业经验"],
+          "priority": 1,
+          "source_asset_ids": []
+        }
+      ],
+      "visual_intent": {
+        "type": "process",
+        "chart_type": null,
+        "image_role": null,
+        "emphasis": "medium"
+      },
+      "assets": [],
+      "editable_elements": [
+        {
+          "element_id": "el-003-title",
+          "element_type": "text_box",
+          "content_ref": null,
+          "locked": false,
+          "revision_scope": "element"
+        },
+        {
+          "element_id": "el-003-points",
+          "element_type": "text_box",
+          "content_ref": "block-003-points",
+          "locked": false,
+          "revision_scope": "element"
+        }
+      ],
+      "speaker_notes": "",
+      "constraints": [],
+      "revision_history": []
+    },
+    {
+      "slide_id": "slide-004",
+      "slide_number": 4,
+      "slide_type": "process",
+      "layout_id": "process.steps.v1",
+      "question": "AI 可以介入药物研发的哪些环节？",
+      "title": "AI 介入药物研发的主要环节",
+      "key_message": "AI 的价值在于降低不确定性，并把部分经验判断转化为数据驱动的预测。",
+      "content_blocks": [
+        {
+          "block_id": "block-004-steps",
+          "role": "body",
+          "content": ["靶点发现：寻找疾病相关线索", "分子设计：生成或筛选候选化合物", "性质预测：评估毒性、吸收、代谢等风险", "临床阶段：辅助患者分层和试验设计"],
+          "priority": 1,
+          "source_asset_ids": []
+        }
+      ],
+      "visual_intent": {
+        "type": "process",
+        "chart_type": null,
+        "image_role": null,
+        "emphasis": "high"
+      },
+      "assets": [],
+      "editable_elements": [
+        {
+          "element_id": "el-004-title",
+          "element_type": "text_box",
+          "content_ref": null,
+          "locked": false,
+          "revision_scope": "element"
+        },
+        {
+          "element_id": "el-004-steps",
+          "element_type": "group",
+          "content_ref": "block-004-steps",
+          "locked": false,
+          "revision_scope": "element"
+        }
+      ],
+      "speaker_notes": "",
+      "constraints": [],
+      "revision_history": []
+    },
+    {
+      "slide_id": "slide-005",
+      "slide_number": 5,
+      "slide_type": "content",
+      "layout_id": "content.title-body.v1",
+      "question": "AI 如何帮助发现更有价值的药物靶点？",
+      "title": "靶点发现：从海量生物数据中寻找线索",
+      "key_message": "AI 可以整合多源生物数据，帮助研究者提出更有优先级的靶点假设。",
+      "content_blocks": [
+        {
+          "block_id": "block-005-points",
+          "role": "body",
+          "content": ["分析基因、蛋白、疾病表型等多组学数据", "从文献和数据库中识别潜在疾病关联", "对候选靶点进行优先级排序", "帮助缩小实验验证范围"],
+          "priority": 1,
+          "source_asset_ids": []
+        }
+      ],
+      "visual_intent": {
+        "type": "mixed",
+        "chart_type": null,
+        "image_role": null,
+        "emphasis": "medium"
+      },
+      "assets": [],
+      "editable_elements": [
+        {
+          "element_id": "el-005-title",
+          "element_type": "text_box",
+          "content_ref": null,
+          "locked": false,
+          "revision_scope": "element"
+        },
+        {
+          "element_id": "el-005-points",
+          "element_type": "text_box",
+          "content_ref": "block-005-points",
+          "locked": false,
+          "revision_scope": "element"
+        }
+      ],
+      "speaker_notes": "",
+      "constraints": [],
+      "revision_history": []
+    },
+    {
+      "slide_id": "slide-006",
+      "slide_number": 6,
+      "slide_type": "comparison",
+      "layout_id": "comparison.two-column.v1",
+      "question": "生成式 AI 给分子设计带来了什么变化？",
+      "title": "分子设计：从筛选到生成",
+      "key_message": "AI 让候选分子探索从“在库里找”扩展到“按目标设计”。",
+      "content_blocks": [
+        {
+          "block_id": "block-006-left",
+          "role": "body",
+          "content": ["传统虚拟筛选", "从已有化合物库中寻找候选", "依赖库的覆盖范围"],
+          "priority": 1,
+          "source_asset_ids": []
+        },
+        {
+          "block_id": "block-006-right",
+          "role": "body",
+          "content": ["AI 分子生成", "根据目标性质生成候选结构", "可同时优化活性、毒性和可合成性"],
+          "priority": 1,
+          "source_asset_ids": []
+        }
+      ],
+      "visual_intent": {
+        "type": "comparison",
+        "chart_type": null,
+        "image_role": null,
+        "emphasis": "high"
+      },
+      "assets": [],
+      "editable_elements": [
+        {
+          "element_id": "el-006-title",
+          "element_type": "text_box",
+          "content_ref": null,
+          "locked": false,
+          "revision_scope": "element"
+        },
+        {
+          "element_id": "el-006-left",
+          "element_type": "text_box",
+          "content_ref": "block-006-left",
+          "locked": false,
+          "revision_scope": "element"
+        },
+        {
+          "element_id": "el-006-right",
+          "element_type": "text_box",
+          "content_ref": "block-006-right",
+          "locked": false,
+          "revision_scope": "element"
+        }
+      ],
+      "speaker_notes": "",
+      "constraints": [],
+      "revision_history": []
+    },
+    {
+      "slide_id": "slide-007",
+      "slide_number": 7,
+      "slide_type": "content",
+      "layout_id": "content.title-body.v1",
+      "question": "AI 能否减少实验阶段的无效尝试？",
+      "title": "实验验证：提高预测，减少低效尝试",
+      "key_message": "AI 不能替代实验，但能帮助研究者更早排除低潜力方案。",
+      "content_blocks": [
+        {
+          "block_id": "block-007-points",
+          "role": "body",
+          "content": ["预测候选分子的吸收、分布、代谢、排泄和毒性", "帮助确定实验优先级", "减少部分低价值实验组合", "把资源集中到更有希望的候选物上"],
+          "priority": 1,
+          "source_asset_ids": []
+        }
+      ],
+      "visual_intent": {
+        "type": "text",
+        "chart_type": null,
+        "image_role": null,
+        "emphasis": "medium"
+      },
+      "assets": [],
+      "editable_elements": [
+        {
+          "element_id": "el-007-title",
+          "element_type": "text_box",
+          "content_ref": null,
+          "locked": false,
+          "revision_scope": "element"
+        },
+        {
+          "element_id": "el-007-points",
+          "element_type": "text_box",
+          "content_ref": "block-007-points",
+          "locked": false,
+          "revision_scope": "element"
+        }
+      ],
+      "speaker_notes": "",
+      "constraints": [],
+      "revision_history": []
+    },
+    {
+      "slide_id": "slide-008",
+      "slide_number": 8,
+      "slide_type": "content",
+      "layout_id": "content.title-body.v1",
+      "question": "AI 对临床试验有什么潜在影响？",
+      "title": "临床阶段：更精准地匹配患者与方案",
+      "key_message": "AI 可用于患者分层和风险监测，但临床应用必须以伦理、隐私和监管为前提。",
+      "content_blocks": [
+        {
+          "block_id": "block-008-points",
+          "role": "body",
+          "content": ["根据生物标志物和病史辅助患者分层", "优化入组匹配，提高试验设计效率", "监测不良反应和依从性风险", "需要严格处理隐私、偏差和责任归属问题"],
+          "priority": 1,
+          "source_asset_ids": []
+        }
+      ],
+      "visual_intent": {
+        "type": "mixed",
+        "chart_type": null,
+        "image_role": null,
+        "emphasis": "medium"
+      },
+      "assets": [],
+      "editable_elements": [
+        {
+          "element_id": "el-008-title",
+          "element_type": "text_box",
+          "content_ref": null,
+          "locked": false,
+          "revision_scope": "element"
+        },
+        {
+          "element_id": "el-008-points",
+          "element_type": "text_box",
+          "content_ref": "block-008-points",
+          "locked": false,
+          "revision_scope": "element"
+        }
+      ],
+      "speaker_notes": "",
+      "constraints": [],
+      "revision_history": []
+    },
+    {
+      "slide_id": "slide-009",
+      "slide_number": 9,
+      "slide_type": "comparison",
+      "layout_id": "comparison.two-column.v1",
+      "question": "为什么 AI 药物研发不能被理解为万能方案？",
+      "title": "AI 药物研发的限制与风险",
+      "key_message": "AI 的表现受到数据、可解释性、实验验证和监管体系共同限制。",
+      "content_blocks": [
+        {
+          "block_id": "block-009-left",
+          "role": "body",
+          "content": ["技术限制", "训练数据质量不稳定", "模型解释性不足", "预测结果仍需实验验证"],
+          "priority": 1,
+          "source_asset_ids": []
+        },
+        {
+          "block_id": "block-009-right",
+          "role": "body",
+          "content": ["应用风险", "算法偏差可能影响决策", "患者隐私和数据合规要求高", "监管接受度仍需逐步建立"],
+          "priority": 1,
+          "source_asset_ids": []
+        }
+      ],
+      "visual_intent": {
+        "type": "comparison",
+        "chart_type": null,
+        "image_role": null,
+        "emphasis": "medium"
+      },
+      "assets": [],
+      "editable_elements": [
+        {
+          "element_id": "el-009-title",
+          "element_type": "text_box",
+          "content_ref": null,
+          "locked": false,
+          "revision_scope": "element"
+        },
+        {
+          "element_id": "el-009-left",
+          "element_type": "text_box",
+          "content_ref": "block-009-left",
+          "locked": false,
+          "revision_scope": "element"
+        },
+        {
+          "element_id": "el-009-right",
+          "element_type": "text_box",
+          "content_ref": "block-009-right",
+          "locked": false,
+          "revision_scope": "element"
+        }
+      ],
+      "speaker_notes": "",
+      "constraints": [],
+      "revision_history": []
+    },
+    {
+      "slide_id": "slide-010",
+      "slide_number": 10,
+      "slide_type": "closing",
+      "layout_id": "closing.final-message.v1",
+      "question": "这场汇报最后要留下什么观点？",
+      "title": "总结：AI 是加速器，不是魔法棒",
+      "key_message": "AI 将改变药物研发的效率和协作方式，但新药仍需要科学假设、实验验证和临床证据共同支撑。",
+      "content_blocks": [
+        {
+          "block_id": "block-010-takeaways",
+          "role": "body",
+          "content": ["AI 提升筛选、预测和设计效率", "AI 改变研发流程中的决策方式", "AI 的落地仍依赖高质量数据与实验验证"],
+          "priority": 1,
+          "source_asset_ids": []
+        }
+      ],
+      "visual_intent": {
+        "type": "text",
+        "chart_type": null,
+        "image_role": null,
+        "emphasis": "high"
+      },
+      "assets": [],
+      "editable_elements": [
+        {
+          "element_id": "el-010-title",
+          "element_type": "text_box",
+          "content_ref": null,
+          "locked": false,
+          "revision_scope": "element"
+        },
+        {
+          "element_id": "el-010-takeaways",
+          "element_type": "text_box",
+          "content_ref": "block-010-takeaways",
+          "locked": false,
+          "revision_scope": "element"
+        }
+      ],
+      "speaker_notes": "",
+      "constraints": [],
+      "revision_history": []
+    }
+  ]
+}
+

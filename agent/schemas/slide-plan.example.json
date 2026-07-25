@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0.0",
+  "deck_id": "demo-nev-market",
+  "language": "zh-CN",
+  "slide_size": {
+    "preset": "wide-16-9",
+    "width": 13.333,
+    "height": 7.5,
+    "unit": "in"
+  },
+  "design_system_id": "business-report.v1",
+  "global_constraints": [
+    {
+      "constraint_id": "c-language-zh",
+      "type": "language",
+      "description": "All visible text should be in Chinese.",
+      "severity": "must"
+    }
+  ],
+  "slides": [
+    {
+      "slide_id": "slide-001",
+      "slide_number": 1,
+      "slide_type": "cover",
+      "layout_id": "cover.title-subtitle.v1",
+      "question": "这份汇报要建立什么第一印象？",
+      "title": "新能源车市场概览",
+      "key_message": "市场增长正在从政策驱动转向产品和基础设施驱动。",
+      "content_blocks": [
+        {
+          "block_id": "block-cover-title",
+          "role": "headline",
+          "content": "新能源车市场概览",
+          "priority": 1,
+          "source_asset_ids": []
+        },
+        {
+          "block_id": "block-cover-subtitle",
+          "role": "body",
+          "content": "课堂展示 | 10 页 | 简洁商务风",
+          "priority": 2,
+          "source_asset_ids": []
+        }
+      ],
+      "visual_intent": {
+        "type": "text",
+        "chart_type": null,
+        "image_role": null,
+        "emphasis": "high"
+      },
+      "assets": [],
+      "editable_elements": [
+        {
+          "element_id": "el-cover-title",
+          "element_type": "text_box",
+          "content_ref": "block-cover-title",
+          "locked": false,
+          "revision_scope": "element"
+        },
+        {
+          "element_id": "el-cover-subtitle",
+          "element_type": "text_box",
+          "content_ref": "block-cover-subtitle",
+          "locked": false,
+          "revision_scope": "element"
+        }
+      ],
+      "speaker_notes": "",
+      "constraints": [],
+      "revision_history": []
+    }
+  ]
+}
+

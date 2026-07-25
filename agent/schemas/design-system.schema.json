@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.ppt-agent/schemas/design-system.schema.json",
+  "title": "Design System",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "design_system_id", "theme_id", "slide_size", "palette", "typography", "spacing", "layout_rules"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "design_system_id": { "type": "string", "minLength": 1 },
+    "theme_id": { "type": "string", "minLength": 1 },
+    "slide_size": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["preset", "width", "height", "unit"],
+      "properties": {
+        "preset": { "type": "string", "enum": ["wide-16-9", "standard-4-3", "custom"] },
+        "width": { "type": "number", "exclusiveMinimum": 0 },
+        "height": { "type": "number", "exclusiveMinimum": 0 },
+        "unit": { "type": "string", "enum": ["in", "cm", "px"] }
+      }
+    },
+    "palette": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["background", "surface", "text_primary", "text_secondary", "accent_primary", "accent_secondary", "warning", "divider"],
+      "properties": {
+        "background": { "$ref": "#/$defs/color" },
+        "surface": { "$ref": "#/$defs/color" },
+        "text_primary": { "$ref": "#/$defs/color" },
+        "text_secondary": { "$ref": "#/$defs/color" },
+        "accent_primary": { "$ref": "#/$defs/color" },
+        "accent_secondary": { "$ref": "#/$defs/color" },
+        "warning": { "$ref": "#/$defs/color" },
+        "divider": { "$ref": "#/$defs/color" }
+      }
+    },
+    "typography": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title_font", "body_font", "min_body_size_pt", "max_title_size_pt"],
+      "properties": {
+        "title_font": { "type": "string", "minLength": 1 },
+        "body_font": { "type": "string", "minLength": 1 },
+        "min_body_size_pt": { "type": "number", "minimum": 10 },
+        "max_title_size_pt": { "type": "number", "minimum": 20 }
+      }
+    },
+    "spacing": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["page_margin", "block_gap", "section_gap"],
+      "properties": {
+        "page_margin": { "type": "number", "minimum": 0 },
+        "block_gap": { "type": "number", "minimum": 0 },
+        "section_gap": { "type": "number", "minimum": 0 }
+      }
+    },
+    "layout_rules": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["density", "grid", "allowed_layout_ids", "avoid"],
+      "properties": {
+        "density": { "type": "string", "enum": ["low", "medium-low", "medium", "medium-high", "high"] },
+        "grid": { "type": "string", "minLength": 1 },
+        "allowed_layout_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "avoid": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": []
+        }
+      }
+    }
+  },
+  "$defs": {
+    "color": {
+      "type": "string",
+      "pattern": "^#[0-9A-Fa-f]{6}$"
+    }
+  }
+}
+

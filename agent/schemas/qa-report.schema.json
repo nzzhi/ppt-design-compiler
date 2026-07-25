@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.ppt-agent/schemas/qa-report.schema.json",
+  "title": "QA Report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "project_id", "artifact", "status", "checked_at", "summary", "issues"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "project_id": { "type": "string", "minLength": 1 },
+    "artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pptx_path", "slide_plan_path"],
+      "properties": {
+        "pptx_path": { "type": "string", "minLength": 1 },
+        "slide_plan_path": { "type": "string", "minLength": 1 },
+        "preview_path": { "type": ["string", "null"], "default": null }
+      }
+    },
+    "status": { "type": "string", "enum": ["pass", "pass_with_warnings", "fail"] },
+    "checked_at": { "type": "string", "format": "date-time" },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["slides_checked", "blocking_issues", "warnings"],
+      "properties": {
+        "slides_checked": { "type": "integer", "minimum": 0 },
+        "blocking_issues": { "type": "integer", "minimum": 0 },
+        "warnings": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "issues": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/issue" },
+      "default": []
+    }
+  },
+  "$defs": {
+    "issue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["issue_id", "severity", "category", "slide_id", "description", "repair_action"],
+      "properties": {
+        "issue_id": { "type": "string", "minLength": 1 },
+        "severity": { "type": "string", "enum": ["blocker", "warning", "info"] },
+        "category": { "type": "string", "enum": ["overflow", "overlap", "font_size", "contrast", "density", "consistency", "content"] },
+        "slide_id": { "type": ["string", "null"], "pattern": "^slide-[0-9]{3}$" },
+        "element_id": { "type": ["string", "null"], "default": null },
+        "description": { "type": "string", "minLength": 1 },
+        "repair_action": { "type": "string", "minLength": 1 },
+        "auto_fixable": { "type": "boolean", "default": false }
+      }
+    }
+  }
+}
+

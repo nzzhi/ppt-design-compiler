@@ -1,0 +1,126 @@
+{
+  "ruleset_version": "1.0.0",
+  "layout_rules": [
+    {
+      "layout_id": "cover.title-subtitle.v1",
+      "family": "cover",
+      "page_types": ["cover"],
+      "visual_types": ["typography", "photo", "illustration"],
+      "min_items": 1,
+      "max_items": 2,
+      "max_characters": 70,
+      "asset_slots": 1,
+      "fallback_layout_ids": []
+    },
+    {
+      "layout_id": "agenda.numbered-list.v1",
+      "family": "agenda",
+      "page_types": ["agenda"],
+      "visual_types": ["typography", "diagram"],
+      "min_items": 3,
+      "max_items": 6,
+      "max_characters": 120,
+      "asset_slots": 0,
+      "fallback_layout_ids": ["content.title-body.v1"]
+    },
+    {
+      "layout_id": "content.title-body.v1",
+      "family": "claim-evidence",
+      "page_types": ["claim-evidence"],
+      "visual_types": ["typography"],
+      "min_items": 1,
+      "max_items": 5,
+      "max_characters": 190,
+      "asset_slots": 0,
+      "fallback_layout_ids": []
+    },
+    {
+      "layout_id": "claim-evidence.visual-left.v1",
+      "family": "claim-evidence",
+      "page_types": ["claim-evidence", "data-insight"],
+      "visual_types": ["photo", "illustration", "chart", "diagram", "mixed"],
+      "min_items": 1,
+      "max_items": 5,
+      "max_characters": 180,
+      "asset_slots": 1,
+      "fallback_layout_ids": ["content.title-body.v1"]
+    },
+    {
+      "layout_id": "comparison.two-column.v1",
+      "family": "comparison",
+      "page_types": ["comparison"],
+      "visual_types": ["diagram", "table", "mixed"],
+      "min_items": 2,
+      "max_items": 8,
+      "max_characters": 220,
+      "asset_slots": 2,
+      "fallback_layout_ids": ["claim-evidence.visual-left.v1"]
+    },
+    {
+      "layout_id": "process.steps.v1",
+      "family": "process",
+      "page_types": ["process"],
+      "visual_types": ["diagram"],
+      "min_items": 2,
+      "max_items": 6,
+      "max_characters": 180,
+      "asset_slots": 0,
+      "fallback_layout_ids": ["timeline.horizontal.v1"]
+    },
+    {
+      "layout_id": "timeline.horizontal.v1",
+      "family": "timeline",
+      "page_types": ["timeline", "process"],
+      "visual_types": ["diagram"],
+      "min_items": 3,
+      "max_items": 7,
+      "max_characters": 180,
+      "asset_slots": 0,
+      "fallback_layout_ids": ["process.steps.v1"]
+    },
+    {
+      "layout_id": "chart.title-insight.v1",
+      "family": "data-insight",
+      "page_types": ["data-insight", "claim-evidence"],
+      "visual_types": ["chart", "table"],
+      "min_items": 1,
+      "max_items": 5,
+      "max_characters": 140,
+      "asset_slots": 1,
+      "fallback_layout_ids": ["claim-evidence.visual-left.v1"]
+    },
+    {
+      "layout_id": "big-number.metric-focus.v1",
+      "family": "data-insight",
+      "page_types": ["data-insight", "claim-evidence"],
+      "visual_types": ["metric"],
+      "min_items": 1,
+      "max_items": 3,
+      "max_characters": 90,
+      "asset_slots": 0,
+      "fallback_layout_ids": ["chart.title-insight.v1"]
+    },
+    {
+      "layout_id": "summary.three-takeaways.v1",
+      "family": "summary",
+      "page_types": ["summary"],
+      "visual_types": ["typography", "diagram", "mixed"],
+      "min_items": 2,
+      "max_items": 4,
+      "max_characters": 150,
+      "asset_slots": 0,
+      "fallback_layout_ids": ["content.title-body.v1"]
+    },
+    {
+      "layout_id": "closing.final-message.v1",
+      "family": "closing",
+      "page_types": ["closing"],
+      "visual_types": ["typography", "photo", "illustration"],
+      "min_items": 1,
+      "max_items": 2,
+      "max_characters": 90,
+      "asset_slots": 1,
+      "fallback_layout_ids": ["cover.title-subtitle.v1"]
+    }
+  ]
+}

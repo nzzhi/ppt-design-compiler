@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.ppt-agent/schemas/revision-log.schema.json",
+  "title": "Revision Log",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "project_id", "revisions"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "project_id": { "type": "string", "minLength": 1 },
+    "revisions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/revision" },
+      "default": []
+    }
+  },
+  "$defs": {
+    "revision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["revision_id", "requested_at", "user_request", "scope", "changes", "outputs"],
+      "properties": {
+        "revision_id": { "type": "string", "minLength": 1 },
+        "requested_at": { "type": "string", "format": "date-time" },
+        "user_request": { "type": "string", "minLength": 1 },
+        "scope": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "slide_ids", "element_ids"],
+          "properties": {
+            "type": { "type": "string", "enum": ["deck", "slides", "elements"] },
+            "slide_ids": {
+              "type": "array",
+              "items": { "type": "string", "pattern": "^slide-[0-9]{3}$" },
+              "default": []
+            },
+            "element_ids": {
+              "type": "array",
+              "items": { "type": "string" },
+              "default": []
+            }
+          }
+        },
+        "changes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["target", "before", "after"],
+            "properties": {
+              "target": { "type": "string", "minLength": 1 },
+              "before": {},
+              "after": {}
+            }
+          }
+        },
+        "outputs": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["pptx_path", "brief_path"],
+          "properties": {
+            "pptx_path": { "type": "string", "minLength": 1 },
+            "preview_path": { "type": ["string", "null"], "default": null },
+            "brief_path": { "type": "string", "minLength": 1 }
+          }
+        }
+      }
+    }
+  }
+}
+

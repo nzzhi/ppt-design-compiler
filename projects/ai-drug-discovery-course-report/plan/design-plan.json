@@ -1,0 +1,399 @@
+{
+  "schema_version": "2.0.0",
+  "deck_id": "ai-drug-discovery-course-report",
+  "content_source": {
+    "type": "slide-plan",
+    "path": "slide-plan.json",
+    "schema_version": "1.0.0"
+  },
+  "source_slide_plan_version": "1.0.0",
+  "design_system_id": "ai-drug-discovery-academic.v1",
+  "ruleset_version": "1.0.0",
+  "deck_direction": {
+    "communication_mode": "structured-argument",
+    "visual_strategy": "Use evidence-led visuals on 6 of 10 slides; keep visuals subordinate to the slide claim.",
+    "density_strategy": "Prefer low-to-medium density; shorten, change layout, or split before reducing typography below budget.",
+    "rhythm_strategy": "Alternate text-led, visual-led, and transition silhouettes; do not repeat one layout family more than twice."
+  },
+  "slides": [
+    {
+      "slide_id": "slide-001",
+      "slide_number": 1,
+      "slide_type": "cover",
+      "layout": {
+        "layout_id": "cover.title-subtitle.v1",
+        "family": "cover",
+        "selection_reason": "supports `cover`; supports `typography`; content item count fits; text fits declared capacity; preserves compatible v1 layout intent",
+        "fallback_layout_ids": []
+      },
+      "visual_type": "typography",
+      "information_density": {
+        "level": "medium",
+        "content_items": 2,
+        "estimated_characters": 31,
+        "max_content_items": 2,
+        "max_characters": 70,
+        "overflow_action": "none"
+      },
+      "design_notes": [
+        "Keep the cover minimal",
+        "Create one dominant focal point",
+        "Use scale, weight, and whitespace to create hierarchy; do not default to a bullet document",
+        "Visual purpose: AI 正在从辅助工具进入药物研发的核心决策链条。"
+      ],
+      "content_refs": [
+        "block-cover-title",
+        "block-cover-subtitle"
+      ],
+      "asset_requirements": [],
+      "quality_constraints": [
+        "title-must-not-overflow",
+        "body-font-at-least-16pt",
+        "no-unintended-overlap"
+      ]
+    },
+    {
+      "slide_id": "slide-002",
+      "slide_number": 2,
+      "slide_type": "agenda",
+      "layout": {
+        "layout_id": "agenda.numbered-list.v1",
+        "family": "agenda",
+        "selection_reason": "supports `agenda`; supports `typography`; content item count fits; text fits declared capacity; preserves compatible v1 layout intent",
+        "fallback_layout_ids": [
+          "content.title-body.v1"
+        ]
+      },
+      "visual_type": "typography",
+      "information_density": {
+        "level": "medium",
+        "content_items": 5,
+        "estimated_characters": 49,
+        "max_content_items": 6,
+        "max_characters": 120,
+        "overflow_action": "none"
+      },
+      "design_notes": [
+        "Group the agenda into a small number of meaningful stages",
+        "Avoid treating the agenda as a plain document list",
+        "Use scale, weight, and whitespace to create hierarchy; do not default to a bullet document",
+        "Visual purpose: 从传统研发痛点出发，理解 AI 的介入方式、价值和边界。"
+      ],
+      "content_refs": [
+        "block-002-agenda"
+      ],
+      "asset_requirements": [],
+      "quality_constraints": [
+        "title-must-not-overflow",
+        "body-font-at-least-16pt",
+        "no-unintended-overlap",
+        "action-title-must-state-takeaway"
+      ]
+    },
+    {
+      "slide_id": "slide-003",
+      "slide_number": 3,
+      "slide_type": "claim-evidence",
+      "layout": {
+        "layout_id": "claim-evidence.visual-left.v1",
+        "family": "claim-evidence",
+        "selection_reason": "supports `claim-evidence`; supports `diagram`; content item count fits; text fits declared capacity",
+        "fallback_layout_ids": [
+          "content.title-body.v1"
+        ]
+      },
+      "visual_type": "diagram",
+      "information_density": {
+        "level": "medium",
+        "content_items": 4,
+        "estimated_characters": 77,
+        "max_content_items": 5,
+        "max_characters": 190,
+        "overflow_action": "none"
+      },
+      "design_notes": [
+        "Make the action title state the takeaway",
+        "Give the primary exhibit more area than explanatory text",
+        "Use a simple directional structure; keep labels concise",
+        "Visual purpose: 药物研发的难点来自长周期、高成本、高失败率和复杂验证链条。"
+      ],
+      "content_refs": [
+        "block-003-points"
+      ],
+      "asset_requirements": [],
+      "quality_constraints": [
+        "title-must-not-overflow",
+        "body-font-at-least-16pt",
+        "no-unintended-overlap",
+        "action-title-must-state-takeaway"
+      ]
+    },
+    {
+      "slide_id": "slide-004",
+      "slide_number": 4,
+      "slide_type": "process",
+      "layout": {
+        "layout_id": "process.steps.v1",
+        "family": "process",
+        "selection_reason": "supports `process`; supports `diagram`; content item count fits; text fits declared capacity; preserves compatible v1 layout intent",
+        "fallback_layout_ids": [
+          "timeline.horizontal.v1"
+        ]
+      },
+      "visual_type": "diagram",
+      "information_density": {
+        "level": "low",
+        "content_items": 4,
+        "estimated_characters": 62,
+        "max_content_items": 6,
+        "max_characters": 180,
+        "overflow_action": "none"
+      },
+      "design_notes": [
+        "Keep step labels short",
+        "Show direction and grouping explicitly",
+        "Use a simple directional structure; keep labels concise",
+        "Visual purpose: AI 的价值在于降低不确定性，并把部分经验判断转化为数据驱动的预测。"
+      ],
+      "content_refs": [
+        "block-004-steps"
+      ],
+      "asset_requirements": [],
+      "quality_constraints": [
+        "title-must-not-overflow",
+        "body-font-at-least-16pt",
+        "no-unintended-overlap",
+        "action-title-must-state-takeaway"
+      ]
+    },
+    {
+      "slide_id": "slide-005",
+      "slide_number": 5,
+      "slide_type": "claim-evidence",
+      "layout": {
+        "layout_id": "claim-evidence.visual-left.v1",
+        "family": "claim-evidence",
+        "selection_reason": "supports `claim-evidence`; supports `mixed`; content item count fits; text fits declared capacity",
+        "fallback_layout_ids": [
+          "content.title-body.v1"
+        ]
+      },
+      "visual_type": "mixed",
+      "information_density": {
+        "level": "medium",
+        "content_items": 4,
+        "estimated_characters": 56,
+        "max_content_items": 5,
+        "max_characters": 190,
+        "overflow_action": "none"
+      },
+      "design_notes": [
+        "Make the action title state the takeaway",
+        "Give the primary exhibit more area than explanatory text",
+        "Choose one dominant visual and one supporting text region",
+        "Visual purpose: AI 可以整合多源生物数据，帮助研究者提出更有优先级的靶点假设。"
+      ],
+      "content_refs": [
+        "block-005-points"
+      ],
+      "asset_requirements": [],
+      "quality_constraints": [
+        "title-must-not-overflow",
+        "body-font-at-least-16pt",
+        "no-unintended-overlap",
+        "action-title-must-state-takeaway"
+      ]
+    },
+    {
+      "slide_id": "slide-006",
+      "slide_number": 6,
+      "slide_type": "comparison",
+      "layout": {
+        "layout_id": "comparison.two-column.v1",
+        "family": "comparison",
+        "selection_reason": "supports `comparison`; supports `diagram`; content item count fits; text fits declared capacity; preserves compatible v1 layout intent",
+        "fallback_layout_ids": [
+          "claim-evidence.visual-left.v1"
+        ]
+      },
+      "visual_type": "diagram",
+      "information_density": {
+        "level": "medium",
+        "content_items": 6,
+        "estimated_characters": 60,
+        "max_content_items": 8,
+        "max_characters": 220,
+        "overflow_action": "none"
+      },
+      "design_notes": [
+        "Use identical comparison dimensions on both sides",
+        "Highlight the decisive difference instead of decorating both columns equally",
+        "Use a simple directional structure; keep labels concise",
+        "Visual purpose: AI 让候选分子探索从“在库里找”扩展到“按目标设计”。"
+      ],
+      "content_refs": [
+        "block-006-left",
+        "block-006-right"
+      ],
+      "asset_requirements": [],
+      "quality_constraints": [
+        "title-must-not-overflow",
+        "body-font-at-least-16pt",
+        "no-unintended-overlap",
+        "action-title-must-state-takeaway"
+      ]
+    },
+    {
+      "slide_id": "slide-007",
+      "slide_number": 7,
+      "slide_type": "claim-evidence",
+      "layout": {
+        "layout_id": "content.title-body.v1",
+        "family": "claim-evidence",
+        "selection_reason": "supports `claim-evidence`; supports `typography`; content item count fits; text fits declared capacity; preserves compatible v1 layout intent",
+        "fallback_layout_ids": []
+      },
+      "visual_type": "typography",
+      "information_density": {
+        "level": "medium",
+        "content_items": 4,
+        "estimated_characters": 56,
+        "max_content_items": 5,
+        "max_characters": 190,
+        "overflow_action": "none"
+      },
+      "design_notes": [
+        "Make the action title state the takeaway",
+        "Give the primary exhibit more area than explanatory text",
+        "Use scale, weight, and whitespace to create hierarchy; do not default to a bullet document",
+        "Visual purpose: AI 不能替代实验，但能帮助研究者更早排除低潜力方案。"
+      ],
+      "content_refs": [
+        "block-007-points"
+      ],
+      "asset_requirements": [],
+      "quality_constraints": [
+        "title-must-not-overflow",
+        "body-font-at-least-16pt",
+        "no-unintended-overlap",
+        "action-title-must-state-takeaway"
+      ]
+    },
+    {
+      "slide_id": "slide-008",
+      "slide_number": 8,
+      "slide_type": "claim-evidence",
+      "layout": {
+        "layout_id": "claim-evidence.visual-left.v1",
+        "family": "claim-evidence",
+        "selection_reason": "supports `claim-evidence`; supports `mixed`; content item count fits; text fits declared capacity",
+        "fallback_layout_ids": [
+          "content.title-body.v1"
+        ]
+      },
+      "visual_type": "mixed",
+      "information_density": {
+        "level": "medium",
+        "content_items": 4,
+        "estimated_characters": 61,
+        "max_content_items": 5,
+        "max_characters": 190,
+        "overflow_action": "none"
+      },
+      "design_notes": [
+        "Make the action title state the takeaway",
+        "Give the primary exhibit more area than explanatory text",
+        "Choose one dominant visual and one supporting text region",
+        "Visual purpose: AI 可用于患者分层和风险监测，但临床应用必须以伦理、隐私和监管为前提。"
+      ],
+      "content_refs": [
+        "block-008-points"
+      ],
+      "asset_requirements": [],
+      "quality_constraints": [
+        "title-must-not-overflow",
+        "body-font-at-least-16pt",
+        "no-unintended-overlap",
+        "action-title-must-state-takeaway"
+      ]
+    },
+    {
+      "slide_id": "slide-009",
+      "slide_number": 9,
+      "slide_type": "comparison",
+      "layout": {
+        "layout_id": "comparison.two-column.v1",
+        "family": "comparison",
+        "selection_reason": "supports `comparison`; supports `diagram`; content item count fits; text fits declared capacity; preserves compatible v1 layout intent",
+        "fallback_layout_ids": [
+          "claim-evidence.visual-left.v1"
+        ]
+      },
+      "visual_type": "diagram",
+      "information_density": {
+        "level": "medium",
+        "content_items": 8,
+        "estimated_characters": 67,
+        "max_content_items": 8,
+        "max_characters": 220,
+        "overflow_action": "none"
+      },
+      "design_notes": [
+        "Use identical comparison dimensions on both sides",
+        "Highlight the decisive difference instead of decorating both columns equally",
+        "Use a simple directional structure; keep labels concise",
+        "Visual purpose: AI 的表现受到数据、可解释性、实验验证和监管体系共同限制。"
+      ],
+      "content_refs": [
+        "block-009-left",
+        "block-009-right"
+      ],
+      "asset_requirements": [],
+      "quality_constraints": [
+        "title-must-not-overflow",
+        "body-font-at-least-16pt",
+        "no-unintended-overlap",
+        "action-title-must-state-takeaway"
+      ]
+    },
+    {
+      "slide_id": "slide-010",
+      "slide_number": 10,
+      "slide_type": "closing",
+      "layout": {
+        "layout_id": "closing.final-message.v1",
+        "family": "closing",
+        "selection_reason": "supports `closing`; supports `typography`; text fits declared capacity; preserves compatible v1 layout intent",
+        "fallback_layout_ids": [
+          "cover.title-subtitle.v1"
+        ]
+      },
+      "visual_type": "typography",
+      "information_density": {
+        "level": "high",
+        "content_items": 3,
+        "estimated_characters": 49,
+        "max_content_items": 2,
+        "max_characters": 90,
+        "overflow_action": "change-layout"
+      },
+      "design_notes": [
+        "Echo the opening visual language",
+        "Do not end with an unframed generic thank-you",
+        "Use scale, weight, and whitespace to create hierarchy; do not default to a bullet document",
+        "Visual purpose: AI 将改变药物研发的效率和协作方式，但新药仍需要科学假设、实验验证和临床证据共同支撑。",
+        "Resolve density with `change-layout` before rendering"
+      ],
+      "content_refs": [
+        "block-010-takeaways"
+      ],
+      "asset_requirements": [],
+      "quality_constraints": [
+        "title-must-not-overflow",
+        "body-font-at-least-16pt",
+        "no-unintended-overlap",
+        "action-title-must-state-takeaway"
+      ]
+    }
+  ]
+}

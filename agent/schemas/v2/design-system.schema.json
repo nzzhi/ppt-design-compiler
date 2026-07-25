@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.ppt-agent/schemas/v2/design-system.schema.json",
+  "title": "Design System v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "design_system_id", "template_package_id", "slide_size", "tokens", "style_intent", "layout_policy", "visual_policy"],
+  "properties": {
+    "schema_version": { "const": "2.0.0" },
+    "design_system_id": { "type": "string", "minLength": 1 },
+    "template_package_id": { "type": "string", "minLength": 1 },
+    "slide_size": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["width", "height", "unit"],
+      "properties": {
+        "width": { "type": "number", "exclusiveMinimum": 0 },
+        "height": { "type": "number", "exclusiveMinimum": 0 },
+        "unit": { "enum": ["in", "px"] }
+      }
+    },
+    "tokens": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["colors", "typography", "spacing", "lines", "charts"],
+      "properties": {
+        "colors": { "type": "object", "additionalProperties": { "$ref": "#/$defs/color" } },
+        "typography": { "type": "object", "additionalProperties": { "$ref": "#/$defs/text_style" } },
+        "spacing": { "type": "object", "additionalProperties": { "type": "number", "minimum": 0 } },
+        "lines": { "type": "object", "additionalProperties": { "type": ["number", "string"] } },
+        "charts": { "type": "object" }
+      }
+    },
+    "style_intent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mood", "design_principles", "forbidden"],
+      "properties": {
+        "mood": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "design_principles": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "signature_moves": { "type": "array", "items": { "type": "string" }, "default": [] },
+        "forbidden": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "layout_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["grid_columns", "page_margin", "max_repeated_family", "allowed_layout_families"],
+      "properties": {
+        "grid_columns": { "type": "integer", "minimum": 1 },
+        "page_margin": { "type": "number", "minimum": 0 },
+        "max_repeated_family": { "type": "integer", "minimum": 1 },
+        "hero_interval": { "type": ["integer", "null"], "minimum": 2, "default": null },
+        "allowed_layout_families": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+      }
+    },
+    "visual_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["image_treatment", "chart_treatment", "icon_policy"],
+      "properties": {
+        "image_treatment": { "type": "object" },
+        "chart_treatment": { "type": "object" },
+        "icon_policy": { "type": "object" }
+      }
+    }
+  },
+  "$defs": {
+    "color": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+    "text_style": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["font_family", "font_size_pt", "font_weight", "color_token"],
+      "properties": {
+        "font_family": { "type": "string", "minLength": 1 },
+        "font_size_pt": { "type": "number", "minimum": 8 },
+        "font_weight": { "type": "integer", "minimum": 100, "maximum": 900 },
+        "color_token": { "type": "string", "minLength": 1 },
+        "line_spacing": { "type": "number", "exclusiveMinimum": 0, "default": 1.1 },
+        "alignment": { "enum": ["left", "center", "right"], "default": "left" }
+      }
+    }
+  }
+}

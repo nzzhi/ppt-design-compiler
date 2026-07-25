@@ -1,0 +1,71 @@
+{
+  "ruleset_version": "2.0.0",
+  "typography": {
+    "deck_title_min_pt": 40,
+    "slide_title_min_pt": 28,
+    "subheading_min_pt": 20,
+    "body_min_pt": 16,
+    "caption_min_pt": 10,
+    "fit_priority": ["shorten", "change-layout", "split-slide", "reduce-spacing", "shrink-within-budget"]
+  },
+  "composition": {
+    "one_primary_claim_per_slide": true,
+    "one_primary_visual_per_slide": true,
+    "max_repeated_layout_family": 2,
+    "equal_outer_margins": true,
+    "prefer_flat_canvas_over_card_grid": true,
+    "dominant_region_share": 0.6,
+    "supporting_region_share": 0.4,
+    "preferred_reading_patterns": ["z-pattern", "left-to-right", "top-to-bottom", "center-out"],
+    "whitespace_by_density": {
+      "sparse": "expansive",
+      "low": "generous",
+      "medium": "controlled",
+      "high": "compact"
+    }
+  },
+  "narrative": {
+    "require_slide_job": true,
+    "require_takeaway": true,
+    "require_transition_logic": true,
+    "pacing_by_role": {
+      "opening": "pause",
+      "transition": "reset",
+      "evidence": "inspect",
+      "comparison": "compare",
+      "summary": "synthesize",
+      "closing": "resolve",
+      "default": "advance"
+    }
+  },
+  "hierarchy": {
+    "max_emphasis_levels": 3,
+    "default_order": ["action-title", "primary-exhibit", "supporting-context"],
+    "title_is_topic_label": false,
+    "equal_emphasis_for_unrelated_items": false
+  },
+  "visuals": {
+    "images_must_carry_information": true,
+    "reuse_image_by_default": false,
+    "standard_aspect_ratios": ["21:9", "16:9", "16:10", "4:3", "3:2", "1:1"],
+    "chart_requires_insight": true,
+    "diagram_only_when_it_improves_comprehension": true,
+    "require_image_role": true,
+    "require_crop_intent": true,
+    "prefer_single_hero_over_thumbnail_grid": true,
+    "image_roles": ["hero", "evidence", "context", "comparison", "texture"]
+  },
+  "density": {
+    "sparse": { "max_items": 2, "max_characters": 90 },
+    "low": { "max_items": 4, "max_characters": 150 },
+    "medium": { "max_items": 6, "max_characters": 220 },
+    "high": { "max_items": 8, "max_characters": 320 }
+  },
+  "forbidden": [
+    "shrink text below typography budget",
+    "use unrelated decorative imagery",
+    "repeat the same layout family for three consecutive slides",
+    "present a chart without an explicit takeaway",
+    "treat every content group as a card"
+  ]
+}

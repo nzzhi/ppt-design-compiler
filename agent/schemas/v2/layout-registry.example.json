@@ -1,0 +1,59 @@
+{
+  "schema_version": "2.0.0",
+  "registry_id": "core-layouts.v2",
+  "canvas": { "x": 0, "y": 0, "width": 1280, "height": 720 },
+  "layouts": [
+    {
+      "layout_id": "claim-evidence.split.v1",
+      "family": "claim-evidence",
+      "version": 1,
+      "compatible_narrative_roles": ["evidence", "explanation", "recommendation"],
+      "compatible_content_types": ["bullet-list", "chart", "image", "mixed"],
+      "use_when": ["One primary claim is supported by one visual or exhibit"],
+      "avoid_when": ["More than one primary exhibit is required"],
+      "density_budget": {
+        "level": "medium",
+        "max_text_characters": 180,
+        "max_content_items": 5,
+        "max_asset_slots": 1
+      },
+      "typography_budget": {
+        "title_min_pt": 28,
+        "body_min_pt": 16,
+        "caption_min_pt": 10
+      },
+      "slots": [
+        {
+          "slot_id": "slot-title",
+          "role": "title",
+          "accepts": ["action_title"],
+          "required": true,
+          "frame": { "x": 64, "y": 44, "width": 1152, "height": 90 },
+          "capacity": { "max_characters": 42, "max_lines": 2 },
+          "fit_policy": "shrink-within-budget"
+        },
+        {
+          "slot_id": "slot-visual",
+          "role": "visual",
+          "accepts": ["chart", "image", "table"],
+          "required": true,
+          "frame": { "x": 64, "y": 168, "width": 700, "height": 466 },
+          "capacity": { "max_items": 1 },
+          "fit_policy": "contain"
+        },
+        {
+          "slot_id": "slot-body",
+          "role": "body",
+          "accepts": ["bullet-list", "paragraph", "callout"],
+          "required": true,
+          "frame": { "x": 812, "y": 168, "width": 404, "height": 410 },
+          "capacity": { "max_characters": 180, "max_items": 5 },
+          "fit_policy": "reflow"
+        }
+      ],
+      "fallback_layout_ids": [],
+      "preview_path": null,
+      "renderer_key": "claim_evidence_split"
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "ruleset_version": "1.0.0",
+  "page_types": [
+    {
+      "page_type": "cover",
+      "narrative_roles": ["opening"],
+      "communication_job": "Establish the subject, tone, and reason to pay attention.",
+      "preferred_visual_types": ["photo", "illustration", "typography"],
+      "density": "sparse",
+      "max_items": 2,
+      "max_characters": 70,
+      "required_notes": ["Keep the cover minimal", "Create one dominant focal point"]
+    },
+    {
+      "page_type": "agenda",
+      "narrative_roles": ["orientation"],
+      "communication_job": "Give the audience a useful mental map of the argument.",
+      "preferred_visual_types": ["typography", "diagram"],
+      "density": "low",
+      "max_items": 6,
+      "max_characters": 120,
+      "required_notes": ["Group the agenda into a small number of meaningful stages", "Avoid treating the agenda as a plain document list"]
+    },
+    {
+      "page_type": "section",
+      "narrative_roles": ["transition"],
+      "communication_job": "Reset attention and introduce the next narrative movement.",
+      "preferred_visual_types": ["typography", "photo", "illustration"],
+      "density": "sparse",
+      "max_items": 2,
+      "max_characters": 60,
+      "required_notes": ["Use a visibly different silhouette from content slides", "Carry one transition message only"]
+    },
+    {
+      "page_type": "claim-evidence",
+      "narrative_roles": ["context", "problem", "question", "evidence", "explanation"],
+      "communication_job": "State one claim and make its supporting evidence immediately legible.",
+      "preferred_visual_types": ["chart", "photo", "diagram", "mixed", "typography"],
+      "density": "medium",
+      "max_items": 5,
+      "max_characters": 190,
+      "required_notes": ["Make the action title state the takeaway", "Give the primary exhibit more area than explanatory text"]
+    },
+    {
+      "page_type": "comparison",
+      "narrative_roles": ["comparison"],
+      "communication_job": "Make differences, trade-offs, or change between alternatives easy to scan.",
+      "preferred_visual_types": ["diagram", "table", "mixed"],
+      "density": "medium",
+      "max_items": 8,
+      "max_characters": 220,
+      "required_notes": ["Use identical comparison dimensions on both sides", "Highlight the decisive difference instead of decorating both columns equally"]
+    },
+    {
+      "page_type": "process",
+      "narrative_roles": ["explanation"],
+      "communication_job": "Explain sequence, dependency, or transformation.",
+      "preferred_visual_types": ["diagram"],
+      "density": "medium",
+      "max_items": 6,
+      "max_characters": 180,
+      "required_notes": ["Keep step labels short", "Show direction and grouping explicitly"]
+    },
+    {
+      "page_type": "timeline",
+      "narrative_roles": ["context", "explanation"],
+      "communication_job": "Show change over time with meaningful milestones.",
+      "preferred_visual_types": ["diagram"],
+      "density": "medium",
+      "max_items": 7,
+      "max_characters": 180,
+      "required_notes": ["Use a consistent time scale when dates are quantitative", "Emphasize turning points, not every event"]
+    },
+    {
+      "page_type": "data-insight",
+      "narrative_roles": ["evidence"],
+      "communication_job": "Present one quantitative finding and explain why it matters.",
+      "preferred_visual_types": ["chart", "metric", "table"],
+      "density": "medium",
+      "max_items": 5,
+      "max_characters": 140,
+      "required_notes": ["Annotate the key finding directly", "Remove chart decoration that does not support interpretation"]
+    },
+    {
+      "page_type": "summary",
+      "narrative_roles": ["summary", "recommendation"],
+      "communication_job": "Synthesize the argument into a small number of memorable conclusions or actions.",
+      "preferred_visual_types": ["typography", "diagram", "mixed"],
+      "density": "low",
+      "max_items": 4,
+      "max_characters": 150,
+      "required_notes": ["Prioritize conclusions over recap", "End with the implication or next action"]
+    },
+    {
+      "page_type": "closing",
+      "narrative_roles": ["closing"],
+      "communication_job": "Resolve the opening and leave the audience with the intended final thought or action.",
+      "preferred_visual_types": ["typography", "photo", "illustration"],
+      "density": "sparse",
+      "max_items": 2,
+      "max_characters": 90,
+      "required_notes": ["Echo the opening visual language", "Do not end with an unframed generic thank-you"]
+    }
+  ]
+}

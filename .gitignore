@@ -1,0 +1,22 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+node_modules/
+**/node_modules/
+projects/*/outputs/
+outputs/
+*.pptx
+*.pdf
+*.ndjson
+*.png
+*.jpg
+*.jpeg
+*.tmp
+.DS_Store
+
+# Curated README showcase images are tracked intentionally
+!docs/showcase/
+!docs/showcase/*.png

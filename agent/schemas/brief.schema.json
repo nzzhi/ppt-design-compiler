@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.ppt-agent/schemas/brief.schema.json",
+  "title": "Brief",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "project_id",
+    "raw_request",
+    "topic",
+    "use_case",
+    "audience",
+    "language",
+    "page_count",
+    "style",
+    "constraints",
+    "materials",
+    "clarifications"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "project_id": { "type": "string", "minLength": 1 },
+    "raw_request": { "type": "string", "minLength": 1 },
+    "topic": { "type": "string", "minLength": 1 },
+    "use_case": {
+      "type": "string",
+      "enum": ["classroom", "defense", "work_report", "roadshow", "client_briefing", "other"]
+    },
+    "audience": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "language": { "type": "string", "minLength": 2 },
+    "page_count": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["target", "min", "max"],
+      "properties": {
+        "target": { "type": "integer", "minimum": 1, "default": 10 },
+        "min": { "type": "integer", "minimum": 1 },
+        "max": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "style": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requested", "theme_hint"],
+      "properties": {
+        "requested": { "type": ["string", "null"] },
+        "theme_hint": {
+          "type": "string",
+          "enum": ["business-report.v1", "academic-defense.v1", "tech-roadshow.v1", "auto"]
+        }
+      }
+    },
+    "constraints": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/constraint" },
+      "default": []
+    },
+    "materials": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/material" },
+      "default": []
+    },
+    "clarifications": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/clarification" },
+      "default": []
+    }
+  },
+  "$defs": {
+    "constraint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["constraint_id", "type", "description", "severity"],
+      "properties": {
+        "constraint_id": { "type": "string", "minLength": 1 },
+        "type": {
+          "type": "string",
+          "enum": ["language", "style", "content", "layout", "brand", "accessibility"]
+        },
+        "description": { "type": "string", "minLength": 1 },
+        "severity": { "type": "string", "enum": ["must", "should", "nice-to-have"] }
+      }
+    },
+    "material": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["material_id", "type", "summary"],
+      "properties": {
+        "material_id": { "type": "string", "minLength": 1 },
+        "type": { "type": "string", "enum": ["text", "image", "data", "template", "other"] },
+        "path": { "type": ["string", "null"], "default": null },
+        "summary": { "type": "string" }
+      }
+    },
+    "clarification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["question", "status"],
+      "properties": {
+        "question": { "type": "string", "minLength": 1 },
+        "answer": { "type": ["string", "null"], "default": null },
+        "status": { "type": "string", "enum": ["needed", "answered", "assumed"] }
+      }
+    }
+  }
+}
+

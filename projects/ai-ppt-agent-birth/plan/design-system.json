@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0.0",
+  "design_system_id": "ai-ppt-agent-product.v1",
+  "theme_id": "tech-roadshow.v1",
+  "slide_size": { "preset": "wide-16-9", "width": 13.333, "height": 7.5, "unit": "in" },
+  "palette": { "background": "#F8FAFC", "surface": "#E8EEF5", "text_primary": "#102A43", "text_secondary": "#52606D", "accent_primary": "#0967D2", "accent_secondary": "#D97706", "warning": "#B42318", "divider": "#CBD5E1" },
+  "typography": { "title_font": "Microsoft YaHei", "body_font": "Microsoft YaHei", "min_body_size_pt": 16, "max_title_size_pt": 40 },
+  "spacing": { "page_margin": 0.55, "block_gap": 0.18, "section_gap": 0.35 },
+  "layout_rules": { "density": "medium", "grid": "8-column", "allowed_layout_ids": ["cover.title-subtitle.v1", "content.title-body.v1", "comparison.two-column.v1", "process.steps.v1", "timeline.horizontal.v1", "chart.title-insight.v1", "closing.final-message.v1"], "avoid": ["large_empty_decorative_blocks", "ambiguous_icons", "dense-dashboard-grids"] }
+}

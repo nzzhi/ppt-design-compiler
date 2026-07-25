@@ -1,0 +1,42 @@
+{
+  "theme_id": "academic-defense.v1",
+  "name": "Academic Defense",
+  "use_cases": ["thesis_defense", "classroom_presentation", "research_report"],
+  "audience": ["teachers", "committee", "classmates", "research_peers"],
+  "tone": ["rigorous", "readable", "evidence-led"],
+  "palette": {
+    "background": "#FBFCFE",
+    "surface": "#EEF3F8",
+    "text_primary": "#111827",
+    "text_secondary": "#4B5563",
+    "accent_primary": "#315C8C",
+    "accent_secondary": "#6A7D39",
+    "warning": "#B45309",
+    "divider": "#D6DEE8"
+  },
+  "typography": {
+    "preferred_fonts": ["Microsoft YaHei", "SimSun", "Aptos"],
+    "title_weight": 700,
+    "body_weight": 400,
+    "min_body_size_pt": 15,
+    "max_title_size_pt": 36
+  },
+  "layout_rules": {
+    "density": "medium-high",
+    "grid": "8-column",
+    "margin": "standard",
+    "chart_preference": ["table", "bar", "line"],
+    "avoid": ["large_empty_decorative_blocks", "ambiguous_icons", "oversimplified_evidence"]
+  },
+  "default_slide_types": [
+    "cover",
+    "agenda",
+    "section",
+    "content",
+    "process",
+    "chart",
+    "summary",
+    "closing"
+  ]
+}
+

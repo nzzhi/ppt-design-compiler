@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0.0",
+  "project_id": "ai-drug-discovery-course-report",
+  "deck_title": "人工智能对药物研发的影响",
+  "story_goal": "帮助大学生理解 AI 正在如何改变药物研发流程、效率、成本结构和未来能力边界。",
+  "narrative_arc": "situation-analysis-action",
+  "slides": [
+    {
+      "slide_id": "slide-001",
+      "slide_number": 1,
+      "purpose": "建立主题和汇报范围。",
+      "working_title": "人工智能对药物研发的影响",
+      "key_message": "AI 正在从工具层面进入药物研发的核心流程。",
+      "required_evidence": [],
+      "notes": "封面保持简洁。"
+    },
+    {
+      "slide_id": "slide-002",
+      "slide_number": 2,
+      "purpose": "让听众知道整场汇报的结构。",
+      "working_title": "汇报结构",
+      "key_message": "先理解传统研发痛点，再看 AI 介入环节，最后讨论机会与限制。",
+      "required_evidence": [],
+      "notes": ""
+    },
+    {
+      "slide_id": "slide-003",
+      "slide_number": 3,
+      "purpose": "解释药物研发为什么复杂且高风险。",
+      "working_title": "传统药物研发的核心难题",
+      "key_message": "药物研发周期长、成本高、失败率高，根源在于生物系统复杂和验证链条漫长。",
+      "required_evidence": ["研发周期", "成本压力", "临床失败风险"],
+      "notes": "避免未经来源验证的精确数字。"
+    },
+    {
+      "slide_id": "slide-004",
+      "slide_number": 4,
+      "purpose": "说明 AI 能介入哪些研发步骤。",
+      "working_title": "AI 介入药物研发的主要环节",
+      "key_message": "AI 的价值不是替代整个研发过程，而是在多个高不确定环节提升筛选和决策效率。",
+      "required_evidence": ["靶点发现", "分子生成", "ADMET 预测", "临床试验设计"],
+      "notes": ""
+    },
+    {
+      "slide_id": "slide-005",
+      "slide_number": 5,
+      "purpose": "讲清 AI 在早期发现阶段的价值。",
+      "working_title": "靶点发现：从海量生物数据中寻找线索",
+      "key_message": "AI 可以整合组学、文献和疾病数据，帮助研究者提出更有价值的靶点假设。",
+      "required_evidence": ["多组学数据", "疾病关联分析", "候选靶点排序"],
+      "notes": ""
+    },
+    {
+      "slide_id": "slide-006",
+      "slide_number": 6,
+      "purpose": "说明生成式 AI 与分子设计的关系。",
+      "working_title": "分子设计：从筛选到生成",
+      "key_message": "生成式模型让候选分子的探索从被动筛选扩展到主动设计。",
+      "required_evidence": ["虚拟筛选", "分子生成", "性质优化"],
+      "notes": ""
+    },
+    {
+      "slide_id": "slide-007",
+      "slide_number": 7,
+      "purpose": "解释 AI 对实验和临床前研究的影响。",
+      "working_title": "实验验证：提高预测，减少低效尝试",
+      "key_message": "AI 预测不能取代实验，但能帮助研究者更早排除低潜力方案。",
+      "required_evidence": ["ADMET", "毒性预测", "实验优先级"],
+      "notes": ""
+    },
+    {
+      "slide_id": "slide-008",
+      "slide_number": 8,
+      "purpose": "解释 AI 对临床试验的潜在帮助。",
+      "working_title": "临床阶段：更精准地匹配患者与方案",
+      "key_message": "AI 可用于患者分层、入组匹配和风险监测，但必须面对伦理与合规要求。",
+      "required_evidence": ["患者分层", "试验入组", "风险监测"],
+      "notes": ""
+    },
+    {
+      "slide_id": "slide-009",
+      "slide_number": 9,
+      "purpose": "建立理性认知，避免技术万能论。",
+      "working_title": "AI 药物研发的限制与风险",
+      "key_message": "数据质量、可解释性、实验验证和监管合规决定了 AI 能走多远。",
+      "required_evidence": ["数据偏差", "黑箱问题", "验证成本", "监管要求"],
+      "notes": ""
+    },
+    {
+      "slide_id": "slide-010",
+      "slide_number": 10,
+      "purpose": "总结观点并给出课程汇报式收束。",
+      "working_title": "总结：AI 是加速器，不是魔法棒",
+      "key_message": "AI 将改变药物研发的效率和协作方式，但真正的新药仍需要科学假设、实验验证和临床证据共同支撑。",
+      "required_evidence": [],
+      "notes": ""
+    }
+  ]
+}
+

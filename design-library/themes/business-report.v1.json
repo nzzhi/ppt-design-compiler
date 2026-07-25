@@ -1,0 +1,41 @@
+{
+  "theme_id": "business-report.v1",
+  "name": "Business Report",
+  "use_cases": ["work_report", "client_briefing", "industry_analysis", "management_update"],
+  "audience": ["management", "customers", "partners"],
+  "tone": ["clear", "reliable", "structured"],
+  "palette": {
+    "background": "#FFFFFF",
+    "surface": "#F5F7FA",
+    "text_primary": "#172033",
+    "text_secondary": "#5A6475",
+    "accent_primary": "#1E5AA8",
+    "accent_secondary": "#2E7D6F",
+    "warning": "#D9822B",
+    "divider": "#DDE3EA"
+  },
+  "typography": {
+    "preferred_fonts": ["Microsoft YaHei", "Aptos", "Arial"],
+    "title_weight": 700,
+    "body_weight": 400,
+    "min_body_size_pt": 16,
+    "max_title_size_pt": 40
+  },
+  "layout_rules": {
+    "density": "medium",
+    "grid": "12-column",
+    "margin": "generous",
+    "chart_preference": ["bar", "line", "table"],
+    "avoid": ["decorative_backgrounds", "excessive_gradients", "low_contrast_text"]
+  },
+  "default_slide_types": [
+    "cover",
+    "agenda",
+    "summary",
+    "content",
+    "comparison",
+    "chart",
+    "closing"
+  ]
+}
+
