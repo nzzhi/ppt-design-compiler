@@ -26,6 +26,7 @@ from renderers import (
     render_image_story,
 )
 from renderers.base import RenderContext
+from agent.core import validate_or_raise
 
 
 Renderer = Callable[[RenderContext, dict[str, Any]], None]
@@ -59,10 +60,13 @@ def render_pptx(design_plan_path: str | Path, output_path: str | Path) -> Path:
     design_plan = _load_json(design_plan_path)
     if design_plan.get("schema_version") != "2.0.0":
         raise ValueError("Renderer requires design-plan schema_version 2.0.0")
+    validate_or_raise(design_plan, "design-plan", "2.0.0")
 
     content_source = design_plan["content_source"]
     content_plan_path = (design_plan_path.parent / content_source["path"]).resolve()
     content_plan = _load_json(content_plan_path)
+    for slide in content_plan.get("slides", []):
+        slide["_base_dir"] = str(content_plan_path.parent)
     design_system_path = design_plan_path.parent / "design-system.json"
     design_system = _load_json(design_system_path) if design_system_path.is_file() else {}
 

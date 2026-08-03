@@ -29,6 +29,7 @@ node_modules/
 
 projects/*/outputs/
 outputs/
+tmp/
 *.pptx
 *.pdf
 *.ndjson

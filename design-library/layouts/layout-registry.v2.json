@@ -1,0 +1,81 @@
+{
+  "schema_version": "2.0.0",
+  "registry_id": "core-layouts.v2",
+  "canvas": { "x": 0, "y": 0, "width": 1280, "height": 720 },
+  "layouts": [
+    {
+      "layout_id": "editorial.title-body.v1",
+      "family": "title-body",
+      "version": 1,
+      "compatible_narrative_roles": ["opening", "orientation", "context", "problem", "explanation", "summary", "closing"],
+      "compatible_content_types": ["headline", "bullet-list", "quote", "mixed"],
+      "compatible_visual_types": ["typography", "quote", "mixed"],
+      "use_when": ["Text-led claim with a clear supporting body"],
+      "avoid_when": ["Primary evidence needs a chart or image"],
+      "density_budget": { "level": "medium", "max_text_characters": 420, "max_content_items": 6, "max_asset_slots": 0 },
+      "typography_budget": { "title_min_pt": 35, "body_min_pt": 16, "caption_min_pt": 10 },
+      "slots": [
+        { "slot_id": "slot-title", "role": "title", "accepts": ["action_title"], "required": true, "frame": { "x": 72, "y": 48, "width": 1136, "height": 88 }, "fit_policy": "shrink-within-budget", "style_ref": "title" },
+        { "slot_id": "slot-key-message", "role": "key-message", "accepts": ["key_message"], "required": true, "frame": { "x": 76, "y": 158, "width": 1128, "height": 62 }, "fit_policy": "reflow", "style_ref": "key-message" },
+        { "slot_id": "slot-body", "role": "body", "accepts": ["bullet-list", "paragraph", "quote"], "required": true, "frame": { "x": 88, "y": 260, "width": 1080, "height": 300 }, "fit_policy": "reflow", "style_ref": "body" }
+      ],
+      "fallback_layout_ids": [],
+      "renderer_key": "editorial_title_body"
+    },
+    {
+      "layout_id": "evidence.split.v1",
+      "family": "claim-evidence",
+      "version": 1,
+      "compatible_narrative_roles": ["evidence", "explanation", "recommendation", "comparison"],
+      "compatible_content_types": ["bullet-list", "chart", "image", "table", "mixed"],
+      "compatible_visual_types": ["chart", "table", "photo", "illustration", "diagram", "mixed"],
+      "use_when": ["One claim is supported by one exhibit"],
+      "avoid_when": ["The slide is purely text-led"],
+      "density_budget": { "level": "medium", "max_text_characters": 360, "max_content_items": 5, "max_asset_slots": 1 },
+      "typography_budget": { "title_min_pt": 35, "body_min_pt": 16, "caption_min_pt": 10 },
+      "slots": [
+        { "slot_id": "slot-title", "role": "title", "accepts": ["action_title"], "required": true, "frame": { "x": 72, "y": 48, "width": 1136, "height": 88 }, "fit_policy": "shrink-within-budget", "style_ref": "title" },
+        { "slot_id": "slot-visual", "role": "visual", "accepts": ["chart", "image", "table", "diagram"], "required": true, "frame": { "x": 72, "y": 190, "width": 680, "height": 420 }, "fit_policy": "contain", "style_ref": "visual" },
+        { "slot_id": "slot-body", "role": "body", "accepts": ["bullet-list", "paragraph", "callout"], "required": true, "frame": { "x": 812, "y": 210, "width": 396, "height": 330 }, "fit_policy": "reflow", "style_ref": "body" }
+      ],
+      "fallback_layout_ids": ["editorial.title-body.v1"],
+      "renderer_key": "claim_evidence_split"
+    },
+    {
+      "layout_id": "sequence.horizontal.v1",
+      "family": "sequence",
+      "version": 1,
+      "compatible_narrative_roles": ["process", "timeline", "explanation"],
+      "compatible_content_types": ["process", "timeline"],
+      "compatible_visual_types": ["diagram"],
+      "use_when": ["Stages, milestones, or causal progression"],
+      "avoid_when": ["There are more than six steps"],
+      "density_budget": { "level": "low", "max_text_characters": 360, "max_content_items": 6, "max_asset_slots": 0 },
+      "typography_budget": { "title_min_pt": 35, "body_min_pt": 16, "caption_min_pt": 10 },
+      "slots": [
+        { "slot_id": "slot-title", "role": "title", "accepts": ["action_title"], "required": true, "frame": { "x": 72, "y": 48, "width": 1136, "height": 88 }, "fit_policy": "shrink-within-budget", "style_ref": "title" },
+        { "slot_id": "slot-body", "role": "body", "accepts": ["sequence"], "required": true, "frame": { "x": 76, "y": 230, "width": 1128, "height": 300 }, "fit_policy": "reflow", "style_ref": "sequence" }
+      ],
+      "fallback_layout_ids": ["editorial.title-body.v1"],
+      "renderer_key": "sequence_horizontal"
+    },
+    {
+      "layout_id": "comparison.split.v1",
+      "family": "comparison",
+      "version": 1,
+      "compatible_narrative_roles": ["comparison"],
+      "compatible_content_types": ["comparison"],
+      "compatible_visual_types": ["diagram", "mixed"],
+      "use_when": ["Two alternatives need a decisive contrast"],
+      "avoid_when": ["More than two alternatives are equally important"],
+      "density_budget": { "level": "medium", "max_text_characters": 360, "max_content_items": 8, "max_asset_slots": 0 },
+      "typography_budget": { "title_min_pt": 35, "body_min_pt": 16, "caption_min_pt": 10 },
+      "slots": [
+        { "slot_id": "slot-title", "role": "title", "accepts": ["action_title"], "required": true, "frame": { "x": 72, "y": 48, "width": 1136, "height": 88 }, "fit_policy": "shrink-within-budget", "style_ref": "title" },
+        { "slot_id": "slot-body", "role": "body", "accepts": ["comparison"], "required": true, "frame": { "x": 76, "y": 205, "width": 1128, "height": 390 }, "fit_policy": "reflow", "style_ref": "comparison" }
+      ],
+      "fallback_layout_ids": ["editorial.title-body.v1"],
+      "renderer_key": "comparison_split"
+    }
+  ]
+}

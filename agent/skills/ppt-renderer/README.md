@@ -16,10 +16,10 @@ components:
 - `data.py`: metric focus, chart insight, and table evidence variants.
 - `conclusion.py`: synthesis and closing pages.
 
-`renderer.py` only resolves the component from `slide_type` and `visual_type`;
-it does not select layouts, rewrite content, or infer narrative intent. Exact
-geometry remains local to each component and can later be replaced by a Layout
-Engine without changing the Planner contract.
+`renderer.py` resolves the component from `slide_type` and `visual_type`; it
+does not rewrite content or infer narrative intent. The `layout-engine` package
+now compiles stable frames into `render-plan.json`; migrating component geometry
+to consume those frames is the next renderer step.
 
 Image assets are read from `content_plan.slides[].assets` as strings or objects
 with `path`, `file`, or `source`. Supported raster formats are PNG, JPEG, BMP,
@@ -42,4 +42,7 @@ Core slide renderers:
 python agent/skills/ppt-renderer/renderer.py projects/<project-id>/plan/design-plan.json projects/<project-id>/outputs/presentation.pptx
 ```
 
-The renderer does not select layouts. It executes decisions already recorded by the Design Planner. Exact geometry compilation and broader layout coverage remain future work.
+The renderer executes decisions recorded by the Design Planner. Use
+`agent.skills.layout_engine.RenderPlanCompiler` to compile a design plan against
+`design-library/layouts/layout-registry.v2.json` before integrating exact frames
+into a renderer component.

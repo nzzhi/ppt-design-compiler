@@ -50,8 +50,10 @@
       "properties": {
         "requested": { "type": ["string", "null"] },
         "theme_hint": {
-          "type": "string",
-          "enum": ["business-report.v1", "academic-defense.v1", "tech-roadshow.v1", "auto"]
+          "oneOf": [
+            { "const": "auto" },
+            { "type": "string", "pattern": "^[a-z0-9-]+(?:[.-][a-z0-9-]+)*\\.v[0-9]+$" }
+          ]
         }
       }
     },
@@ -109,4 +111,3 @@
     }
   }
 }
-

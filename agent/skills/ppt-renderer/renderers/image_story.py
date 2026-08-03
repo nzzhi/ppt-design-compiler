@@ -39,8 +39,11 @@ def _find_asset(content: dict, design_slide: dict) -> Path | None:
     for req in design_slide.get("asset_requirements", []):
         if req.get("path"):
             candidates.append(req["path"])
+    base_dir = Path(content.get("_base_dir", "."))
     for candidate in candidates:
         path = Path(candidate)
+        if not path.is_absolute():
+            path = base_dir / path
         if path.is_file() and path.suffix.lower() in {".png", ".jpg", ".jpeg", ".bmp", ".gif"}:
             return path
     return None

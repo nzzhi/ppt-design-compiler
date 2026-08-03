@@ -33,17 +33,43 @@ def _render_metric(ctx, slide, content):
 
 
 def _render_chart(ctx, slide, content):
-    items = content_items(content)[:5]
-    values = [max(18, 82 - index * 12) for index in range(max(len(items), 1))]
+    categories, values = _chart_data(content)
+    if not values:
+        ctx.add_panel(slide, 0.95, 2.2, 6.7, 3.5, fill="surface")
+        ctx.add_text(slide, "待补充真实数据", 1.35, 3.25, 5.9, 0.55, size=25, color="warning", bold=True, align=PP_ALIGN.CENTER)
+        ctx.add_text(slide, "图表不会使用推测值替代原始数据", 1.35, 4.05, 5.9, 0.4, size=16, color="text_secondary", align=PP_ALIGN.CENTER)
+        ctx.add_text(slide, content["key_message"], 8.05, 3.05, 3.75, 1.65, size=25, color="text_primary", bold=True)
+        return
     base_y = 5.85
     for index, value in enumerate(values):
         x = 1.05 + index * 1.05
-        bar = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(x), Inches(base_y - value / 22), Inches(0.62), Inches(value / 22))
+        scaled = max(18, min(float(value), 100.0))
+        bar = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(x), Inches(base_y - scaled / 22), Inches(0.62), Inches(scaled / 22))
         bar.fill.solid(); bar.fill.fore_color.rgb = ctx.color("accent_primary" if index < len(values) - 1 else "accent_secondary"); bar.line.fill.background()
-        label = items[index][:14] if index < len(items) else f"{index + 1}"
+        label = categories[index][:14] if index < len(categories) else f"{index + 1}"
         ctx.add_text(slide, label, x - 0.25, 6.05, 1.1, 0.45, size=10, color="text_secondary", align=PP_ALIGN.CENTER)
     ctx.add_text(slide, "KEY FINDING", 7.15, 2.55, 2.4, 0.3, size=11, color="accent_secondary", bold=True)
     ctx.add_text(slide, content["key_message"], 7.15, 3.05, 4.75, 1.65, size=25, color="text_primary", bold=True)
+
+
+def _chart_data(content):
+    for block in content.get("content_blocks", []):
+        if block.get("type") != "chart":
+            continue
+        data = block.get("data", {})
+        categories = data.get("categories") or data.get("labels") or []
+        series = data.get("series") or []
+        if series and isinstance(series[0], dict):
+            values = series[0].get("values") or []
+        else:
+            values = data.get("values") or []
+        if categories and values and len(categories) == len(values) and all(_is_number(value) for value in values):
+            return [str(category) for category in categories], [float(value) for value in values]
+    return [], []
+
+
+def _is_number(value):
+    return isinstance(value, (int, float)) and not isinstance(value, bool)
 
 
 def _render_table(ctx, slide, content):
