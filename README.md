@@ -81,7 +81,8 @@ python -m app
 
 ```text
 LUNA_BASE_URL=https://api.cutaihub.com/v1
-LUNA_MODEL=gpt5.6
+LUNA_MODEL=gpt-5.6-luna
+LUNA_API_MODE=responses
 ```
 
 如果服务返回“模型不存在”或“模型不可用”，只需要在 `.env` 修改 `LUNA_MODEL`。`.env` 已被 Git 忽略，密钥不会上传到 GitHub。

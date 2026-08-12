@@ -36,7 +36,7 @@ class WorkbenchApiTests(unittest.TestCase):
         status, data = self.get_json("/api/health")
         self.assertEqual(status, 200)
         self.assertEqual(data["base_url"], "https://api.cutaihub.com/v1")
-        self.assertEqual(data["model"], "gpt5.6")
+        self.assertEqual(data["model"], "gpt-5.6-luna")
         self.assertNotIn("api_key", data)
 
     def test_catalog_and_home_page_are_available(self):

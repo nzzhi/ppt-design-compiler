@@ -33,6 +33,7 @@ class LunaConfig:
     model: str
     api_key: str | None = None
     timeout_seconds: int = 90
+    api_mode: str = "auto"
 
 
 class LunaProvider(ModelProvider):
@@ -45,13 +46,14 @@ class LunaProvider(ModelProvider):
     def from_env(cls) -> "LunaProvider":
         _load_local_env()
         base_url = os.environ.get("LUNA_BASE_URL", "https://api.cutaihub.com/v1")
-        model = os.environ.get("LUNA_MODEL", "gpt5.6")
+        model = os.environ.get("LUNA_MODEL", "gpt-5.6-luna")
         return cls(
             LunaConfig(
                 base_url=base_url,
                 model=model,
                 api_key=os.environ.get("LUNA_API_KEY"),
                 timeout_seconds=int(os.environ.get("LUNA_TIMEOUT_SECONDS", "90")),
+                api_mode=os.environ.get("LUNA_API_MODE", "auto").lower(),
             )
         )
 
@@ -78,6 +80,35 @@ class LunaProvider(ModelProvider):
             "output_schema": schema,
             "validation_feedback": feedback or [],
         }
+        if self.config.api_mode not in {"auto", "chat", "responses"}:
+            raise RuntimeError("LUNA_API_MODE must be auto, chat, or responses")
+        if self.config.api_mode == "chat":
+            return self._generate_chat(system, user)
+        if self.config.api_mode == "responses":
+            return self._generate_responses(system, user, schema)
+        try:
+            return self._generate_responses(system, user, schema)
+        except LunaHTTPError as error:
+            if error.status_code not in {404, 405}:
+                raise
+            return self._generate_chat(system, user)
+
+    def _generate_responses(
+        self, system: str, user: dict[str, Any], schema: dict[str, Any]
+    ) -> dict[str, Any]:
+        body = {
+            "model": self.config.model,
+            "instructions": system,
+            "input": json.dumps(user, ensure_ascii=False),
+            "text": {"format": {"type": "json_object"}},
+        }
+        result = self._post("/responses", body)
+        content = result.get("output_text") or _extract_response_text(result.get("output"))
+        if not content:
+            raise RuntimeError("Luna Responses API returned no output text")
+        return _parse_json_object(content)
+
+    def _generate_chat(self, system: str, user: dict[str, Any]) -> dict[str, Any]:
         body = {
             "model": self.config.model,
             "messages": [
@@ -87,8 +118,20 @@ class LunaProvider(ModelProvider):
             "temperature": 0.2,
             "response_format": {"type": "json_object"},
         }
-        endpoint = f"{self.config.base_url.rstrip('/')}/chat/completions"
-        headers = {"Content-Type": "application/json"}
+        result = self._post("/chat/completions", body)
+        try:
+            content = result["choices"][0]["message"]["content"]
+        except (KeyError, IndexError, TypeError) as error:
+            raise RuntimeError("Luna returned an unexpected chat response shape") from error
+        return _parse_json_object(content)
+
+    def _post(self, path: str, body: dict[str, Any]) -> dict[str, Any]:
+        endpoint = f"{self.config.base_url.rstrip('/')}{path}"
+        headers = {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            "User-Agent": "PPT-Agent/0.2",
+        }
         if self.config.api_key:
             headers["Authorization"] = f"Bearer {self.config.api_key}"
         request = Request(
@@ -99,17 +142,12 @@ class LunaProvider(ModelProvider):
         )
         try:
             with urlopen(request, timeout=self.config.timeout_seconds) as response:
-                result = json.loads(response.read().decode("utf-8"))
+                return json.loads(response.read().decode("utf-8"))
         except HTTPError as error:
             details = error.read().decode("utf-8", errors="replace")
-            raise RuntimeError(f"Luna request failed with HTTP {error.code}: {details[:500]}") from error
+            raise LunaHTTPError(error.code, details[:500]) from error
         except URLError as error:
             raise RuntimeError(f"Cannot reach Luna endpoint: {error.reason}") from error
-        try:
-            content = result["choices"][0]["message"]["content"]
-        except (KeyError, IndexError, TypeError) as error:
-            raise RuntimeError("Luna returned an unexpected response shape") from error
-        return _parse_json_object(content)
 
 
 class ScriptedProvider(ModelProvider):
@@ -169,6 +207,27 @@ def _parse_json_object(value: Any) -> dict[str, Any]:
     if not isinstance(parsed, dict):
         raise ValueError("Expected the model to return a JSON object")
     return parsed
+
+
+class LunaHTTPError(RuntimeError):
+    def __init__(self, status_code: int, details: str):
+        super().__init__(f"Luna request failed with HTTP {status_code}: {details}")
+        self.status_code = status_code
+
+
+def _extract_response_text(output: Any) -> str:
+    if not isinstance(output, list):
+        return ""
+    chunks: list[str] = []
+    for item in output:
+        if not isinstance(item, dict):
+            continue
+        for content in item.get("content", []):
+            if isinstance(content, dict) and content.get("type") in {"output_text", "text"}:
+                text = content.get("text")
+                if isinstance(text, str):
+                    chunks.append(text)
+    return "\n".join(chunks).strip()
 
 
 def _load_local_env() -> None:
