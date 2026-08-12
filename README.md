@@ -58,6 +58,34 @@ python -m agent.runtime revise --project-id my-presentation --slides 3,5 --instr
 
 具体参数以 `python -m agent.runtime <command> --help` 为准。
 
+## 打开 PPT Agent 工作台
+
+项目现在附带一个本地网页工作台，不需要安装 Node.js 或前端构建工具：
+
+```bash
+cd ppt-agent
+copy .env.example .env
+# 打开 .env，把 LUNA_API_KEY 替换成你自己的密钥
+python -m app
+```
+
+然后打开 <http://127.0.0.1:8765>。在网页里可以：
+
+- 输入主题、受众、页数和视觉风格
+- 让 Agent 先生成大纲并人工确认
+- 生成可编辑的 PPTX
+- 用自然语言修改指定页面
+- 下载当前版本的 PPT
+
+当前默认配置已经填入你提供的接口和模型：
+
+```text
+LUNA_BASE_URL=https://api.cutaihub.com/v1
+LUNA_MODEL=gpt5.6
+```
+
+如果服务返回“模型不存在”或“模型不可用”，只需要在 `.env` 修改 `LUNA_MODEL`。`.env` 已被 Git 忽略，密钥不会上传到 GitHub。
+
 ## 配置 Luna
 
 Agent Runtime 默认支持 OpenAI-compatible API。请在本地环境变量中配置，不要把密钥写入仓库：

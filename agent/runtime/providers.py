@@ -4,6 +4,7 @@ import json
 import os
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
@@ -42,10 +43,9 @@ class LunaProvider(ModelProvider):
 
     @classmethod
     def from_env(cls) -> "LunaProvider":
-        base_url = os.environ.get("LUNA_BASE_URL")
-        model = os.environ.get("LUNA_MODEL")
-        if not base_url or not model:
-            raise RuntimeError("Set LUNA_BASE_URL and LUNA_MODEL before using LunaProvider")
+        _load_local_env()
+        base_url = os.environ.get("LUNA_BASE_URL", "https://api.cutaihub.com/v1")
+        model = os.environ.get("LUNA_MODEL", "gpt5.6")
         return cls(
             LunaConfig(
                 base_url=base_url,
@@ -63,6 +63,10 @@ class LunaProvider(ModelProvider):
         schema: dict[str, Any],
         feedback: list[str] | None = None,
     ) -> dict[str, Any]:
+        if not self.config.api_key:
+            raise RuntimeError(
+                "LUNA_API_KEY is not configured. Put it in the local .env file or set it as an environment variable."
+            )
         system = (
             "You are the semantic planning model inside a PPT Agent. "
             "Return exactly one JSON object and no markdown. Never invent data or sources. "
@@ -165,3 +169,19 @@ def _parse_json_object(value: Any) -> dict[str, Any]:
     if not isinstance(parsed, dict):
         raise ValueError("Expected the model to return a JSON object")
     return parsed
+
+
+def _load_local_env() -> None:
+    """Load simple KEY=VALUE entries from the project-local .env, without overriding the shell."""
+    env_path = Path(__file__).resolve().parents[2] / ".env"
+    if not env_path.is_file():
+        return
+    for raw_line in env_path.read_text(encoding="utf-8").splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        key = key.strip()
+        value = value.strip().strip('"').strip("'")
+        if key and key not in os.environ:
+            os.environ[key] = value

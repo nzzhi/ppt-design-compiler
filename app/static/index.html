@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PPT Agent Workbench</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand-lockup">
+        <div class="brand-mark">P</div>
+        <div>
+          <div class="brand-name">PPT Agent</div>
+          <div class="brand-subtitle">DESIGN WORKBENCH</div>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <div class="connection-pill" id="connection-pill"><span class="status-dot"></span><span id="connection-text">检查连接中</span></div>
+        <button class="icon-button" id="refresh-button" title="刷新项目" aria-label="刷新项目">↻</button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <aside class="sidebar">
+        <div class="sidebar-heading">
+          <span>项目</span>
+          <button class="new-project-button" id="new-project-button">+ 新建</button>
+        </div>
+        <div class="project-list" id="project-list">
+          <div class="empty-list">还没有项目</div>
+        </div>
+        <div class="sidebar-footer">
+          <div class="mini-label">MODEL</div>
+          <div class="model-name" id="model-name">Luna / gpt5.6</div>
+          <div class="model-note">密钥只从本机读取</div>
+        </div>
+      </aside>
+
+      <section class="main-panel">
+        <div class="panel-header">
+          <div>
+            <div class="eyebrow">PRESENTATION BUILDER</div>
+            <h1 id="page-title">新建一份 PPT</h1>
+            <p class="panel-description" id="page-description">从一句需求开始，Agent 会先整理大纲，再生成可编辑的 PowerPoint。</p>
+          </div>
+          <div class="header-actions" id="header-actions" hidden>
+            <button class="secondary-button" id="download-button" disabled>↓ 下载 PPT</button>
+          </div>
+        </div>
+
+        <div class="toast" id="toast" hidden></div>
+
+        <section class="create-view" id="create-view">
+          <form class="brief-form" id="brief-form">
+            <div class="form-section-title">先告诉我你要讲什么</div>
+            <label class="field field-wide">
+              <span>主题</span>
+              <input id="topic" name="topic" placeholder="例如：新能源汽车市场分析" required>
+            </label>
+            <label class="field field-wide">
+              <span>你的需求</span>
+              <textarea id="request" name="request" rows="4" placeholder="例如：面向管理层，分析中国新能源汽车市场的规模、竞争格局和未来机会，希望有数据结论和行动建议。" required></textarea>
+            </label>
+            <div class="form-grid">
+              <label class="field">
+                <span>汇报对象</span>
+                <input id="audience" name="audience" value="管理层" placeholder="例如：客户、老师、投资人">
+              </label>
+              <label class="field">
+                <span>页数</span>
+                <input id="pages" name="pages" type="number" min="3" max="40" value="15">
+              </label>
+              <label class="field">
+                <span>使用场景</span>
+                <select id="use-case" name="use_case">
+                  <option value="work_report">工作汇报</option>
+                  <option value="client_briefing">客户沟通</option>
+                  <option value="roadshow">产品路演</option>
+                  <option value="classroom">课程展示</option>
+                  <option value="defense">答辩汇报</option>
+                  <option value="other">其他</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>视觉风格</span>
+                <select id="theme" name="theme">
+                  <option value="auto">Agent 自动选择</option>
+                </select>
+              </label>
+            </div>
+            <label class="field field-wide">
+              <span>已有材料 <em>可选</em></span>
+              <textarea id="material-summary" name="material_summary" rows="2" placeholder="例如：使用公司 2025 年销量数据；没有现成图片。"></textarea>
+            </label>
+            <div class="form-footer">
+              <div class="secure-note"><span class="lock-icon">⌑</span><span>你的内容保存在本机项目目录</span></div>
+              <button class="primary-button" type="submit" id="create-button">生成大纲 <span>→</span></button>
+            </div>
+          </form>
+        </section>
+
+        <section class="project-view" id="project-view" hidden>
+          <div class="stepper" id="stepper">
+            <div class="step active" data-step="brief"><span>01</span><strong>需求</strong></div>
+            <div class="step-line"></div>
+            <div class="step" data-step="outline"><span>02</span><strong>大纲</strong></div>
+            <div class="step-line"></div>
+            <div class="step" data-step="design"><span>03</span><strong>设计与生成</strong></div>
+            <div class="step-line"></div>
+            <div class="step" data-step="deliver"><span>04</span><strong>交付</strong></div>
+          </div>
+
+          <div class="loading-panel" id="loading-panel" hidden>
+            <div class="loader-ring"></div>
+            <div><strong id="loading-title">Agent 正在工作</strong><p id="loading-message">正在整理内容</p></div>
+          </div>
+
+          <div class="outline-panel" id="outline-panel" hidden>
+            <div class="section-heading-row">
+              <div><div class="eyebrow">OUTLINE REVIEW</div><h2 id="outline-title">大纲</h2></div>
+              <div class="outline-meta" id="outline-meta"></div>
+            </div>
+            <div class="story-goal" id="story-goal"></div>
+            <div class="outline-list" id="outline-list"></div>
+            <div class="action-row">
+              <button class="secondary-button" id="back-to-create">← 重新填写</button>
+              <button class="primary-button" id="confirm-button">确认大纲并生成 <span>→</span></button>
+            </div>
+          </div>
+
+          <div class="result-panel" id="result-panel" hidden>
+            <div class="result-banner">
+              <div class="success-mark">✓</div>
+              <div><div class="eyebrow">READY TO PRESENT</div><h2>PPT 已生成</h2><p id="result-summary">你可以下载文件，也可以继续让 Agent 修改。</p></div>
+              <button class="primary-button" id="result-download">↓ 下载 PPT</button>
+            </div>
+            <div class="result-grid">
+              <div class="preview-stage">
+                <div class="preview-toolbar"><span>页面预览</span><span id="slide-count"></span></div>
+                <div class="slide-preview" id="slide-preview"><div class="preview-placeholder">生成后这里会显示页面结构</div></div>
+              </div>
+              <div class="revision-panel">
+                <div class="eyebrow">REVISION</div>
+                <h3>继续修改</h3>
+                <p class="muted">用自然语言告诉 Agent 你想改什么。</p>
+                <textarea id="revision-request" rows="5" placeholder="例如：把第 3 页改成对比表，减少第 5 页的文字，并让结论更突出。"></textarea>
+                <button class="primary-button full-button" id="revise-button">提交修改 <span>→</span></button>
+                <div class="qa-box" id="qa-box"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+  <script src="/assets/app.js"></script>
+</body>
+</html>
