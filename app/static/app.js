@@ -66,6 +66,10 @@ async function loadProjects() {
       button.addEventListener("click", () => openProject(project.project_id));
       list.appendChild(button);
     });
+    const resumable = data.projects.find((project) => ["running", "awaiting_outline_confirmation"].includes(project.status));
+    if (!state.projectId && resumable) {
+      await openProject(resumable.project_id);
+    }
   } catch (error) { showToast(error.message, true); }
 }
 
@@ -156,6 +160,12 @@ async function openProject(projectId) {
     const project = await api(`/api/projects/${projectId}`);
     state.projectId = projectId;
     state.project = project;
+    if (["awaiting_outline_confirmation", "complete", "failed", "qa_failed"].includes(project.status)) {
+      clearInterval(state.pollTimer);
+      state.pollTimer = null;
+      state.jobId = null;
+      hideLoading();
+    }
     showProjectView();
     renderProject(project);
     loadProjects();

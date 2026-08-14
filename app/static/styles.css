@@ -12,6 +12,7 @@
 }
 
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 body { margin: 0; min-width: 320px; background: #f7f9fb; color: var(--ink); font-family: "Microsoft YaHei", "Aptos", Arial, sans-serif; }
 button, input, textarea, select { font: inherit; }
 button { cursor: pointer; }
